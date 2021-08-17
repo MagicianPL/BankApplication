@@ -1,0 +1,213 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.change {
+  color: red;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.booklist {
+  width: 1300px;
+  background-color: grey;
+  display: flex;
+  margin: 0 auto;
+  justify-content: center;
+  padding: 10px 0 10px 0;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.book {
+  width: 26%;
+  background-color: white;
+  border-radius: 8px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-bottom: 20px;
+}
+
+.book div {
+  text-align: center;
+}
+
+.book img {
+  height: 200px;
+  width: auto;
+}
+
+.book .title {
+  font-weight: bold;
+  font-size: 25px;
+  margin: 10px 0 7px 0;
+}
+
+.book .author {
+  color: blue;
+}
+
+header {
+  width: 100%;
+  height: 300px;
+}
+
+.slide-one {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.slide-one::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("slideone.jpg");
+  background-size: cover;
+  background-position: center;
+  opacity: 1;
+}
+
+.LogInBox {
+  width: 300px;
+  min-height: 450px;
+  margin: 50px auto 0 auto;
+  padding: 15px;
+  text-align: left;
+  position: relative;
+}
+
+.LogInBox::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgb(189, 182, 182);
+  z-index: -2;
+}
+
+.LogInBox::before {
+  content: "";
+  position: absolute;
+  inset: 5px;
+  background-color: rgb(245, 255, 250);
+  border-radius: 8px;
+  z-index: -1;
+}
+
+label {
+  font-weight: bold;
+}
+
+.LogInBox input {
+  display: block;
+  margin: 20px auto 5px auto;
+  height: 30px;
+  border-radius: 5px;
+  padding-left: 10px;
+  font-size: 20px;
+  border: 1px solid black;
+  outline: none;
+}
+
+.LogInBox .error {
+  color: red;
+  font-size: 14px;
+  text-align: center;
+  font-weight: normal;
+}
+
+.LogInBox button {
+  width: 70%;
+  height: 40px;
+  font-weight: bold;
+  color: white;
+  border: none;
+  display: block;
+  margin: 25px auto 0 auto;
+  border-radius: 7px;
+  font-size: 25px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.LogInBox button::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 7px;
+  background-color: green;
+  z-index: -2;
+}
+
+.LogInBox button::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 7px;
+  background-color: rgb(18, 197, 18);
+  transform: translate(-100%);
+  transition: transform 0.3s;
+  opacity: 0.5;
+  z-index: -1;
+}
+
+.LogInBox button:hover::after {
+  transform: translate(0);
+}
+
+.LogInBox .code {
+  text-align: center;
+  font-weight: bold;
+  letter-spacing: 5px;
+  margin-top: 20px;
+  margin-bottom: 5px;
+  font-size: 25px;
+}
+
+.LogInBox p {
+  text-align: center;
+}
