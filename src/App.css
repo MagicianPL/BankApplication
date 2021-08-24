@@ -205,6 +205,50 @@ label {
   border-radius: 50%;
 }
 
+.block-one {
+  background-color: blue;
+  top: 70%;
+  opacity: 0;
+  animation: fly 10s infinite;
+  animation-delay: 2s;
+  transform: scale(0.85);
+}
+
+.block-two {
+  background-color: blue;
+  top: 70%;
+  opacity: 0;
+  animation: fly 10s infinite;
+  animation-delay: 5s;
+  transform: scale(0.85);
+}
+
 .block-three {
   background-color: blue;
+  top: 70%;
+  opacity: 0;
+  animation: fly 10s infinite;
+  animation-delay: 8s;
+  transform: scale(0.85);
+}
+
+@keyframes fly {
+  15% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  50% {
+    top: 5%;
+    opacity: 1;
+  }
+
+  60% {
+    opacity: 0;
+  }
+
+  100% {
+    top: 70%;
+    opacity: 0;
+  }
 }
