@@ -177,8 +177,34 @@ label {
   height: 60rem;
   border: 2px solid red;
   margin: 0 auto 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
 }
 
 .flex-wrapper {
   display: flex;
+}
+
+.block {
+  width: 55rem;
+  height: 13rem;
+  background-color: red;
+  border-radius: 40px;
+  display: flex;
+  align-items: center;
+  padding-left: 2rem;
+  position: absolute;
+}
+
+.circle {
+  background-color: yellow;
+  width: 10rem;
+  height: 10rem;
+  border-radius: 50%;
+}
+
+.block-three {
+  background-color: blue;
 }
