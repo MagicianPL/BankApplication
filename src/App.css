@@ -1,45 +1,5 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-.change {
-  color: red;
+html {
+  font-size: 62.5%;
 }
 
 * {
@@ -48,56 +8,55 @@
   box-sizing: border-box;
 }
 
-.booklist {
-  width: 1300px;
-  background-color: grey;
-  display: flex;
-  margin: 0 auto;
-  justify-content: center;
-  padding: 10px 0 10px 0;
-  justify-content: space-around;
-  flex-wrap: wrap;
-}
-
-.book {
-  width: 26%;
-  background-color: white;
-  border-radius: 8px;
-  padding: 10px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  margin-bottom: 20px;
-}
-
-.book div {
-  text-align: center;
-}
-
-.book img {
-  height: 200px;
-  width: auto;
-}
-
-.book .title {
-  font-weight: bold;
-  font-size: 25px;
-  margin: 10px 0 7px 0;
-}
-
-.book .author {
-  color: blue;
-}
-
 header {
   width: 100%;
   height: 300px;
+}
+
+header h2 {
+  font-size: 6rem;
+  z-index: 5;
+  color: black;
+  padding-top: 2rem;
 }
 
 .slide-one {
   width: 100%;
   height: 100%;
   position: relative;
+}
+
+.slide-one * {
+  width: 65%; /*because absolute element has this width n I want center this*/
+  text-align: center;
+}
+
+.slide-one p {
+  font-size: 2.8rem;
+  margin-top: 1.8rem;
+}
+
+.slide-one p:nth-child(3) {
+  color: green;
+}
+
+.slide-one p:nth-child(4) {
+  padding-top: 2rem;
+  font-size: 2.2rem;
+}
+
+.slide-one::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 300px;
+  width: 65%;
+  background-color: mintcream;
+  opacity: 0.55;
+  -webkit-clip-path: polygon(0 0, 100% 0, 90% 100%, 0% 100%);
+  clip-path: polygon(0 0, 100% 0, 90% 100%, 0% 100%);
+  z-index: -1;
 }
 
 .slide-one::before {
@@ -108,12 +67,13 @@ header {
   background-size: cover;
   background-position: center;
   opacity: 1;
+  z-index: -2;
 }
 
 .LogInBox {
-  width: 300px;
-  min-height: 450px;
-  margin: 50px auto 0 auto;
+  width: 30rem;
+  min-height: 45rem;
+  margin: 5rem auto 8rem 5rem;
   padding: 15px;
   text-align: left;
   position: relative;
