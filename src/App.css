@@ -73,7 +73,7 @@ header h2 {
 .LogInBox {
   width: 30rem;
   min-height: 45rem;
-  margin: 5rem auto 8rem 5rem;
+  margin: 5rem 0 8rem 5rem;
   padding: 15px;
   text-align: left;
   position: relative;
@@ -170,4 +170,15 @@ label {
 
 .LogInBox p {
   text-align: center;
+}
+
+.wrapper-animations {
+  width: 65rem;
+  height: 60rem;
+  border: 2px solid red;
+  margin: 0 auto 0 auto;
+}
+
+.flex-wrapper {
+  display: flex;
 }
