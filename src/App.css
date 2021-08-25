@@ -18,6 +18,15 @@ header h2 {
   z-index: 5;
   color: black;
   padding-top: 2rem;
+  transform: translateX(-100%);
+  animation: from-left 1s forwards;
+  animation-delay: 1s;
+}
+
+@keyframes from-left {
+  100% {
+    transform: translateX(0);
+  }
 }
 
 .slide-one {
@@ -34,15 +43,28 @@ header h2 {
 .slide-one p {
   font-size: 2.8rem;
   margin-top: 1.8rem;
+  transform: translateY(100%);
+  opacity: 0;
+  animation: from-bottom 1s forwards;
+  animation-delay: 2.5s;
+}
+
+@keyframes from-bottom {
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
 .slide-one p:nth-child(3) {
   color: green;
+  animation-delay: 3.5s;
 }
 
 .slide-one p:nth-child(4) {
   padding-top: 2rem;
   font-size: 2.2rem;
+  animation-delay: 4.5s;
 }
 
 .slide-one::after {
@@ -68,6 +90,7 @@ header h2 {
   background-position: center;
   opacity: 1;
   z-index: -2;
+  background-position: 0% 10%;
 }
 
 .LogInBox {
@@ -175,7 +198,6 @@ label {
 .wrapper-animations {
   width: 65rem;
   height: 60rem;
-  border: 2px solid red;
   margin: 0 auto 0 auto;
   display: flex;
   justify-content: center;
@@ -183,30 +205,74 @@ label {
   position: relative;
 }
 
-.flex-wrapper {
+.wrapper-animations::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("trophy.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.3;
+  z-index: -1;
+}
+
+.wrapper-animations::after {
+  content: "ZŁOTY LAUR KONSUMENTA";
+  position: absolute;
+  inset: 0;
+  font-size: 3rem;
+  opacity: 0.2;
+  z-index: -1;
   display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .block {
   width: 55rem;
   height: 13rem;
-  background-color: red;
+  background-color: rgb(249, 247, 245);
+  -webkit-box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.21);
+  box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.21);
   border-radius: 40px;
   display: flex;
   align-items: center;
   padding-left: 2rem;
   position: absolute;
+  background: rgb(236, 4, 6);
+  background: linear-gradient(
+    51deg,
+    rgba(236, 4, 6, 1) 0%,
+    rgba(249, 247, 245, 1) 0%,
+    rgba(243, 239, 230, 1) 81%,
+    rgba(221, 212, 179, 1) 100%,
+    rgba(223, 214, 181, 1) 100%,
+    rgba(210, 201, 168, 1) 100%,
+    rgba(164, 155, 124, 1) 100%
+  );
+}
+
+.block p {
+  text-align: center;
+  font-weight: bold;
+  font-size: 2.6rem;
+  flex-grow: 1;
 }
 
 .circle {
-  background-color: yellow;
+  background-color: white;
   width: 10rem;
   height: 10rem;
   border-radius: 50%;
+  -webkit-box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 5rem;
 }
 
 .block-one {
-  background-color: blue;
   top: 70%;
   opacity: 0;
   animation: fly 10s infinite;
@@ -215,7 +281,6 @@ label {
 }
 
 .block-two {
-  background-color: blue;
   top: 70%;
   opacity: 0;
   animation: fly 10s infinite;
@@ -223,8 +288,11 @@ label {
   transform: scale(0.85);
 }
 
+.block-two .circle {
+  transform: rotate(30deg);
+}
+
 .block-three {
-  background-color: blue;
   top: 70%;
   opacity: 0;
   animation: fly 10s infinite;

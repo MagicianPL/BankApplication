@@ -1,12 +1,31 @@
 import React from "react";
 import Block from "../Block";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faHandshake,
+  faMoneyBill,
+  faEuroSign,
+} from "@fortawesome/free-solid-svg-icons";
+/*<FontAwesomeIcon icon={faHandshake, faMoneyBill, faEuroSign} />*/
 
 const WrapperAnimations = () => {
   return (
     <div className="wrapper-animations">
-      <Block addclass="block-one" text={<h2>Hello World</h2>} />
-      <Block addclass="block-two" text={<h2>Hello World2</h2>} />
-      <Block addclass="block-three" text={<h2>Hello World3</h2>} />
+      <Block
+        addclass="block-one"
+        text="Minimum formalności"
+        icon={<FontAwesomeIcon icon={faHandshake} />}
+      />
+      <Block
+        addclass="block-two"
+        text="U nas zarabiasz więcej"
+        icon={<FontAwesomeIcon icon={faMoneyBill} />}
+      />
+      <Block
+        addclass="block-three"
+        text="Błyskawiczne przewalutowanie"
+        icon={<FontAwesomeIcon icon={faEuroSign} />}
+      />
     </div>
   );
 };
