@@ -1,5 +1,5 @@
 import React from "react";
-import Block from "../Block";
+import Block from "./Block";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faHandshake,

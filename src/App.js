@@ -1,18 +1,21 @@
 import "./App.css";
-import LogInBox from "./components/LogInBox.jsx";
-import { inputLogin } from "./components/LogInBox";
-import Header from "./components/Header";
-import WrapperAnimations from "./components/WrapperAnimations";
+import LogInBox from "./components/Index-LogIn Site/LogInBox.jsx";
+import { inputLogin } from "./components/Index-LogIn Site/LogInBox";
+import Header from "./components/Header/Header";
+import WrapperAnimations from "./components/Index-LogIn Site/WrapperAnimations";
 import Flex from "./Flex";
+import Test from "./components/Test";
+import YourAccountSite from "./components/Header/YourAccountSite/YourAccountSite";
 
 function App() {
   return (
     <div className="App">
-      <Header />
+      {/*<Header />
       <Flex container="flex">
         <LogInBox />
         <WrapperAnimations />
-      </Flex>
+      </Flex>*/}
+      <YourAccountSite />
     </div>
   );
 }
