@@ -373,8 +373,47 @@ label {
   }
 }
 
+.top-bar {
+  position: relative;
+}
+
+.top-bar p {
+  position: absolute;
+  top: 15px;
+  left: 55px;
+  font-size: 2.1rem;
+  font-weight: bold;
+}
+
+.top-bar svg {
+  margin-right: 10px;
+  transform: rotate(40deg);
+  cursor: pointer;
+  transition: transform 1s;
+}
+
+.top-bar svg:hover {
+  transform: rotate(360deg);
+}
+
 nav {
   width: 100%;
   border: 1px solid red;
-  height: 20rem;
+  height: 7rem;
+}
+
+nav ul {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  list-style-type: none;
+  margin-top: 15px;
+  padding-right: 9rem;
+  border: 1px solid yellow;
+}
+
+nav ul li {
+  border: 1px solid blue;
+  font-size: 2.2rem;
+  margin: 0 10px;
 }
