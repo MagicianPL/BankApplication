@@ -478,3 +478,8 @@ h3 {
   display: flex;
   flex-wrap: wrap;
 }
+
+.currencies-container h4:last-child {
+  width: 100%;
+  padding-top: 3rem;
+}

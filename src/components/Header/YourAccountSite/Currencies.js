@@ -3,6 +3,8 @@ import React, { useState, useEffect } from "react";
 const Currencies = () => {
   const [currenciesObjects, setCurrenciesObjects] = useState([]);
   const [date, setDate] = useState("");
+  const [gold, setGold] = useState("");
+  const [priceGold, setPriceGold] = useState("");
 
   useEffect(() => {
     fetch("http://api.nbp.pl/api/exchangerates/tables/a")
@@ -33,6 +35,16 @@ const Currencies = () => {
       });
   }, []);
 
+  useEffect(()=> {
+    fetch("http://api.nbp.pl/api/cenyzlota")
+    .then(resp => resp.json())
+    .then(data => {
+    setGold(data);
+    console.log(data[0].cena)
+      setPriceGold(data[0].cena)
+  })
+  }, [])
+
   return (
     <section>
       <div className="currencies">
@@ -44,6 +56,7 @@ const Currencies = () => {
               {currency} {code} : {mid}
             </h4>);
           })}
+          <h4>ZŁOTO: wyliczona w NBP cena 1 g złota (w próbie 1000) - {priceGold}zł</h4>
         </div>
       </div>
     </section>
