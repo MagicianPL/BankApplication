@@ -53,7 +53,7 @@ const Currencies = () => {
           {currenciesObjects.map((obj) => {
             const { code, mid, currency } = obj;
             return (<h4>
-              {currency} {code} : {mid}
+              {currency} {code} : {mid.toFixed(4)}
             </h4>);
           })}
           <h4>ZŁOTO: wyliczona w NBP cena 1 g złota (w próbie 1000) - {priceGold}zł</h4>
