@@ -10,11 +10,11 @@ import YourAccountSite from "./components/Header/YourAccountSite/YourAccountSite
 function App() {
   return (
     <div className="App">
-      {/*<Header />
+      <Header />
       <Flex container="flex">
         <LogInBox />
         <WrapperAnimations />
-      </Flex>*/}
+      </Flex>
       <YourAccountSite />
     </div>
   );
