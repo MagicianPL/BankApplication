@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import Nav from "../../Nav/Nav";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -8,14 +8,25 @@ import Account from "./Account";
 import Currencies from "./Currencies";
 
 const YourAccountSite = () => {
+  const [euroMid, setEuroMid] = useState("");
+
+  const saveEuro = (obj) => {
+    setEuroMid(obj.mid)
+  }
+
+  useEffect(()=>{
+    console.log("site rendered");
+    console.log(euroMid);
+  })
+
   return (
       <div className="your-account-site">
       <div className="top-bar">
           <p>{<FontAwesomeIcon icon={faCog} />}Witaj, NICK</p>
           <Nav />
       </div>
-      <Account />
-      <Currencies />
+      <Account euro={euroMid} />
+      <Currencies prop = {saveEuro} />
       </div>
   )
 };

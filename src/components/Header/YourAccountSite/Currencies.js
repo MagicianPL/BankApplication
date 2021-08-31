@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
 
-const Currencies = () => {
+const Currencies = (props) => {
   const [currenciesObjects, setCurrenciesObjects] = useState([]);
   const [date, setDate] = useState("");
   const [gold, setGold] = useState("");
   const [priceGold, setPriceGold] = useState("");
+
+  
 
   useEffect(() => {
     fetch("http://api.nbp.pl/api/exchangerates/tables/a")
@@ -17,19 +19,22 @@ const Currencies = () => {
           obj.id = code;
           if (
             code === "USD" ||
-            code === "HUF" ||
             code === "CZK" ||
             code === "UAH" ||
             code === "RUB" ||
             code === "GBP" ||
             code === "CHF" ||
             code === "AUD" ||
+            code === "EUR" ||
             code === "JPY" ||
             code === "HRK" ||
             code === "TRY" ||
             code === "CAD"
           ) {
             setCurrenciesObjects((prev) => [...prev, obj]);
+          };
+          if (code === "EUR") {
+            props.prop(obj);
           }
         });
       });
