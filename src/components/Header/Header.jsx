@@ -7,9 +7,9 @@ import SlideThree from "./SlideThree";
 const Header = () => {
     return (
         <header>
-            <SlideOne />
+           {/* <SlideOne />*/}
             <SlideTwo />
-            <SlideThree />
+           {/*} <SlideThree />*/}
         </header>
     );
 };

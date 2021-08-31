@@ -112,9 +112,20 @@ header h2 {
   background-size: cover;
   background-position: center;
   z-index: 5;
-  transform: translateX(100%);
+  opacity: 0.5;
+  /* transform: translateX(100%);
   animation: fromRight 2s forwards;
-  animation-delay: 7.5s;
+  animation-delay: 7.5s;*/
+}
+
+.perspective {
+  font-size: 6.5rem;
+  letter-spacing: 12px;
+  font-weight: bold;
+  padding-left: 20px;
+  transform: scaleX(1) scaleY(1) scaleZ(1) rotateX(1deg) rotateY(22deg)
+    rotateZ(1deg) translateX(0px) translateY(0px) translateZ(-26px) skewX(2deg)
+    skewY(-1deg);
 }
 
 .slide-three {

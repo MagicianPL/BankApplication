@@ -39,12 +39,6 @@ const Account = () => {
   const [buttonText, setButtonText] = useState("Ukryj saldo");
 
   const toggleBalance = () => {
-    /*console.log(isVisible.visibility)
-    if(isVisible.visibility === "hidden"){
-      setIsVisible({visibility: "visible"})
-    } else {
-      setIsVisible({visibility: "hidden"})
-    }*/
 isVisible.visibility === "visible" ? setIsVisible({visibility: "hidden"}) : setIsVisible({visibility: "visible"});
 
 isVisible.visibility === "visible" ? setButtonText("Pokaż saldo") : setButtonText("Ukryj saldo")
