@@ -35,6 +35,7 @@ const historyActions = [
 
 const Account = (props) => {
   const [accountBalance, setAccountBalance] = useState(15000);
+  const [isPln, setIsPln] = useState(true);
   const [isVisible, setIsVisible] = useState({ visibility: "visible" });
   const [buttonText, setButtonText] = useState("Ukryj saldo");
 
@@ -50,9 +51,9 @@ isVisible.visibility === "visible" ? setButtonText("Pokaż saldo") : setButtonTe
   })
 
   const convert = () => {
-    const amount = accountBalance / props.euro;
-    console.log("Z Account wynik dzielenia:")
-    console.log(amount.toFixed(2));
+    const amount = (accountBalance / props.euro).toFixed(2);
+    setAccountBalance(amount);
+    setIsPln(!isPln);
   }
 
   return (
@@ -61,7 +62,7 @@ isVisible.visibility === "visible" ? setButtonText("Pokaż saldo") : setButtonTe
         <button className="hide" onClick={toggleBalance}>
           {buttonText}
         </button>
-        <span style={isVisible}>SALDO: {accountBalance.toLocaleString()} zł</span>{" "}
+        <span style={isVisible}>SALDO: {accountBalance.toLocaleString()} {isPln ? "zł" : "eur"}</span>{" "}
         <button className="conversion" onClick={convert}>Przewalutuj na euro</button>
       </h2>
 
