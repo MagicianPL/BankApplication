@@ -10,10 +10,10 @@ const Currencies = () => {
     fetch("http://api.nbp.pl/api/exchangerates/tables/a")
       .then((json) => json.json())
       .then((data) => {
-        console.log(data)
-        setDate(data[0].effectiveDate); 
+        console.log(data);
+        setDate(data[0].effectiveDate);
         data[0].rates.map((obj) => {
-          const {code} = obj;
+          const { code } = obj;
           obj.id = code;
           if (
             code === "USD" ||
@@ -35,15 +35,15 @@ const Currencies = () => {
       });
   }, []);
 
-  useEffect(()=> {
+  useEffect(() => {
     fetch("http://api.nbp.pl/api/cenyzlota")
-    .then(resp => resp.json())
-    .then(data => {
-    setGold(data);
-    console.log(data[0].cena)
-      setPriceGold(data[0].cena)
-  })
-  }, [])
+      .then((resp) => resp.json())
+      .then((data) => {
+        setGold(data);
+        console.log(data[0].cena);
+        setPriceGold(data[0].cena.toFixed(2));
+      });
+  }, []);
 
   return (
     <section>
@@ -52,11 +52,15 @@ const Currencies = () => {
         <div className="currencies-container">
           {currenciesObjects.map((obj) => {
             const { code, mid, currency } = obj;
-            return (<h4>
-              {currency} {code} : {mid.toFixed(4)}
-            </h4>);
+            return (
+              <h4>
+                {currency} {code} : {mid.toFixed(4)}
+              </h4>
+            );
           })}
-          <h4>ZŁOTO: wyliczona w NBP cena 1 g złota (w próbie 1000) - {priceGold}zł</h4>
+          <h4>
+            ZŁOTO: wyliczona w NBP cena 1 g złota (w próbie 1000) - {priceGold}zł
+          </h4>
         </div>
       </div>
     </section>

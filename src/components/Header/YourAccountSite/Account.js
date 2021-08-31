@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 const historyActions = [
   {
@@ -34,11 +34,37 @@ const historyActions = [
 ];
 
 const Account = () => {
+  const [accountBalance, setAccountBalance] = useState("15 000");
+  const [isVisible, setIsVisible] = useState({ visibility: "visible" });
+  const [buttonText, setButtonText] = useState("Ukryj saldo");
+
+  const toggleBalance = () => {
+    /*console.log(isVisible.visibility)
+    if(isVisible.visibility === "hidden"){
+      setIsVisible({visibility: "visible"})
+    } else {
+      setIsVisible({visibility: "hidden"})
+    }*/
+isVisible.visibility === "visible" ? setIsVisible({visibility: "hidden"}) : setIsVisible({visibility: "visible"});
+
+isVisible.visibility === "visible" ? setButtonText("Pokaż saldo") : setButtonText("Ukryj saldo")
+  };
+
+  useEffect(()=>{
+    console.log("rendered")
+    console.log(isVisible.visibility)
+  })
+
   return (
     <div className="account">
       <h2>
-        SALDO: 15 000 zł <button>Przewalutuj na euro</button>
+        <button className="hide" onClick={toggleBalance}>
+          {buttonText}
+        </button>
+        <span style={isVisible}>SALDO: {accountBalance} zł</span>{" "}
+        <button className="conversion">Przewalutuj na euro</button>
       </h2>
+
       <h3>00 2847 2049 0483 0000 9304</h3>
       <div className="actions">
         <button>Zrób przelew</button>

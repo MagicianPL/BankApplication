@@ -9,14 +9,14 @@ import Currencies from "./Currencies";
 
 const YourAccountSite = () => {
   return (
-      <>
+      <div className="your-account-site">
       <div className="top-bar">
           <p>{<FontAwesomeIcon icon={faCog} />}Witaj, NICK</p>
           <Nav />
       </div>
       <Account />
       <Currencies />
-      </>
+      </div>
   )
 };
 
