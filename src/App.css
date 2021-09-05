@@ -112,8 +112,8 @@ header h2 {
   background-size: cover;
   background-position: center;
   z-index: 5;
-  opacity: 0.5;
-  /* transform: translateX(100%);
+  opacity: 0.8;
+  /*transform: translateX(100%);
   animation: fromRight 2s forwards;
   animation-delay: 7.5s;*/
 }
@@ -122,10 +122,34 @@ header h2 {
   font-size: 6.5rem;
   letter-spacing: 12px;
   font-weight: bold;
-  padding-left: 20px;
-  transform: scaleX(1) scaleY(1) scaleZ(1) rotateX(1deg) rotateY(22deg)
-    rotateZ(1deg) translateX(0px) translateY(0px) translateZ(-26px) skewX(2deg)
-    skewY(-1deg);
+  padding: 40px 0 0 20px;
+  flex: 1;
+  border: 1px solid red;
+}
+
+.flex-container {
+  display: flex;
+  border: 1px solid red;
+  max-width: 100%;
+  height: calc(100% - 50px);
+  margin: 25px;
+  background-color: rgb(238, 221, 221);
+  opacity: 0.5;
+}
+
+.flex-columns {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid blue;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  color: green;
+}
+
+.flex-columns p {
+  font-size: 4rem;
+  font-weight: bold;
 }
 
 .slide-three {
@@ -530,19 +554,17 @@ h3 {
   z-index: 5;
   padding: 20px;
   position: absolute;
-  top: -50px;
+  top: 0px;
   left: 50%;
   transform: translateX(-50%);
   width: 850px;
   max-width: 100%;
   text-align: center;
   display: none;
-  transition: all 1s;
 }
 
 .show-modal {
   display: block;
-  top: 0;
 }
 
 .message-modal h2 {
