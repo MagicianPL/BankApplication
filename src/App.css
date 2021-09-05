@@ -112,10 +112,9 @@ header h2 {
   background-size: cover;
   background-position: center;
   z-index: 5;
-  opacity: 0.8;
-  /*transform: translateX(100%);
+  transform: translateX(100%);
   animation: fromRight 2s forwards;
-  animation-delay: 7.5s;*/
+  animation-delay: 7.5s;
 }
 
 .perspective {
@@ -129,9 +128,9 @@ header h2 {
 
 .flex-container {
   display: flex;
-  max-width: 100%;
+  width: 100%;
   height: calc(100% - 50px);
-  margin: 25px;
+  margin: 25px 0;
   position: relative;
 }
 
@@ -156,6 +155,7 @@ header h2 {
 .flex-columns p {
   font-size: 4rem;
   font-weight: bold;
+  margin-bottom: 1.5rem;
 }
 
 .slide-three {
@@ -170,7 +170,7 @@ header h2 {
   z-index: 6;
   transform: translateX(100%);
   animation: fromRight 2s forwards;
-  animation-delay: 13.5s;
+  animation-delay: 16.5s;
 }
 
 @keyframes fromRight {
@@ -556,7 +556,7 @@ h3 {
 
 .message-modal {
   border: 1px solid red;
-  background-color: rgb(159, 168, 164);
+  background-color: rgb(247 247 247);
   z-index: 5;
   padding: 20px;
   position: absolute;
