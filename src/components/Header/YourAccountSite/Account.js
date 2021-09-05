@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import MessageModal from "./MessageModal";
 
 const historyActions = [
   {
@@ -53,12 +54,12 @@ isVisible.visibility === "visible" ? setButtonText("Pokaż saldo") : setButtonTe
 
   const convert = () => {
     if(isPln) {
-      const amount = (accountBalance / props.euro).toFixed(2);
+      const amount = (accountBalance / props.euro - 5).toFixed(2);
     setAccountBalance(amount);
     setIsPln(!isPln);
     setConvertButtonText(!convertButtonText);
     } else {
-      const amount = (accountBalance * props.euro - 0.02).toFixed(2);
+      const amount = (accountBalance * props.euro).toFixed(2);
     setAccountBalance(amount);
     setIsPln(!isPln);
     setConvertButtonText(!convertButtonText);
@@ -84,6 +85,7 @@ isVisible.visibility === "visible" ? setButtonText("Pokaż saldo") : setButtonTe
         <button onClick={decrease}>Zrób przelew</button>
         <button>Historia</button>
       </div>
+      <MessageModal />
     </div>
   );
 };

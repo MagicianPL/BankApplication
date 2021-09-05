@@ -520,6 +520,38 @@ h3 {
   margin-top: 4rem;
 }
 
+.account {
+  position: relative;
+}
+
+.message-modal {
+  border: 1px solid red;
+  background-color: rgb(159, 168, 164);
+  z-index: 5;
+  padding: 20px;
+  position: absolute;
+  top: 0px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 800px;
+  max-width: 100%;
+}
+
+.message-modal h2 {
+  color: red;
+  margin-bottom: 25px;
+}
+
+.message-modal p {
+  font-size: 23px;
+  /*font-weight: bold;*/
+  text-align: center;
+}
+
+.message-modal span {
+  font-weight: bold;
+}
+
 .currencies h2 {
   font-size: 2.3rem;
   margin-bottom: 2rem;
