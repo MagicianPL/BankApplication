@@ -10,7 +10,6 @@ const Currencies = (props) => {
     fetch("http://api.nbp.pl/api/exchangerates/tables/a")
       .then((json) => json.json())
       .then((data) => {
-        console.log(data);
         setDate(data[0].effectiveDate);
         data[0].rates.map((obj) => {
           const { code } = obj;
@@ -43,7 +42,6 @@ const Currencies = (props) => {
       .then((resp) => resp.json())
       .then((data) => {
         setGold(data);
-        console.log(data[0].cena);
         setPriceGold(data[0].cena.toFixed(2));
       });
   }, []);
@@ -56,7 +54,7 @@ const Currencies = (props) => {
           {currenciesObjects.map((obj) => {
             const { code, mid, currency } = obj;
             return (
-              <h4>
+              <h4 key={code}>
                 {currency} {code} : {mid.toFixed(4)}
               </h4>
             );

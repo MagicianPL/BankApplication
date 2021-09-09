@@ -29,7 +29,7 @@ const historyTransactions = [
   },
   {
     title: "Przelew przychodzący",
-    amount: 1000,
+    amount: 15598.6,
     income: true,
     date: new Date(2021, 7, 16),
   },
@@ -57,11 +57,6 @@ const Account = (props) => {
       ? setButtonText("Pokaż saldo")
       : setButtonText("Ukryj saldo");
   };
-
-  useEffect(() => {
-    console.log("rendered");
-    console.log(isVisible.visibility);
-  });
 
   const newTransaction = () => {
     //adding new transaction to an array of transactions (triggered in convert fn)

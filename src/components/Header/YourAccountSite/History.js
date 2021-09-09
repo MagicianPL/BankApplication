@@ -4,16 +4,20 @@ const History = ({ transactions }) => {
   console.log(transactions);
   return (
     <div className="history">
-      {transactions.map((transaction) => {
+      {transactions.map((transaction, index) => {
         const { title, amount, date, income } = transaction;
         return (
           <div
             className="transaction"
             style={!income ? { color: "red" } : null}
+            key={index}
           >
             <p className="transaction-date">{date.toLocaleDateString()}</p>
             <p className="transaction-title">{title}</p>
-            <p className="amount">{amount.toFixed(2)} PLN</p>
+            <p className="amount">
+              {income ? null : "-"}
+              {amount.toFixed(2)} PLN
+            </p>
           </div>
         );
       })}

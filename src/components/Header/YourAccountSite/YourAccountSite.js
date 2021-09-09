@@ -14,11 +14,6 @@ const YourAccountSite = () => {
     setEuroMid(obj.mid)
   }
 
-  useEffect(()=>{
-    console.log("site rendered");
-    console.log(euroMid);
-  })
-
   return (
       <div className="your-account-site">
       <div className="top-bar">

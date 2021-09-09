@@ -2,7 +2,6 @@ import React from "react";
 
 const MessageModal = (props) => {
   const modalBoolean = props.variable;
-  console.log(props);
 
   return (
     <div className={`message-modal ${modalBoolean ? "" : "show-modal"}`}>
