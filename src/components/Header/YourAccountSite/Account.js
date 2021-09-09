@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import MessageModal from "./MessageModal";
+import History from "./History";
 
-const historyActions = [
+const historyTransactions = [
   {
     title: "Żabka - artykuły spożywcze",
     amount: 18.72,
@@ -102,6 +103,7 @@ const Account = (props) => {
         <button onClick={decrease}>Zrób przelew</button>
         <button>Historia</button>
       </div>
+      <History />
       <MessageModal
         variable={modalIsHidden}
         function={toggleModal}

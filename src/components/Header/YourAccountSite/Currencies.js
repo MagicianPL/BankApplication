@@ -6,8 +6,6 @@ const Currencies = (props) => {
   const [gold, setGold] = useState("");
   const [priceGold, setPriceGold] = useState("");
 
-  
-
   useEffect(() => {
     fetch("http://api.nbp.pl/api/exchangerates/tables/a")
       .then((json) => json.json())
@@ -32,7 +30,7 @@ const Currencies = (props) => {
             code === "CAD"
           ) {
             setCurrenciesObjects((prev) => [...prev, obj]);
-          };
+          }
           if (code === "EUR") {
             props.prop(obj);
           }
@@ -64,7 +62,8 @@ const Currencies = (props) => {
             );
           })}
           <h4>
-            ZŁOTO: wyliczona w NBP cena 1 g złota (w próbie 1000) - {priceGold}zł
+            ZŁOTO: wyliczona w NBP cena 1 g złota (w próbie 1000) - {priceGold}
+            zł
           </h4>
         </div>
       </div>
