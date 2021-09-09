@@ -42,6 +42,7 @@ const Account = (props) => {
   const [buttonText, setButtonText] = useState("Ukryj saldo");
   const [convertButtonText, setConvertButtonText] = useState(true);
   const [modalIsHidden, setModalIsHidden] = useState(true);
+  const [historyIsHidden, setHistoryIsHidden] = useState(true);
 
   const toggleModal = (boolean) => {
     setModalIsHidden(boolean);
@@ -71,7 +72,7 @@ const Account = (props) => {
       income: false,
     };
 
-    historyTransactions.unshift(transaction);
+    historyTransactions.unshift(transaction); //new object is added to an array
   };
 
   const convert = () => {
@@ -114,9 +115,15 @@ const Account = (props) => {
       <h3>00 2847 2049 0483 0000 9304</h3>
       <div className="actions">
         <button onClick={decrease}>Zrób przelew</button>
-        <button>Historia</button>
+        <button
+          onClick={() => {
+            setHistoryIsHidden(!historyIsHidden);
+          }}
+        >
+          Historia
+        </button>
       </div>
-      <History transactions={historyTransactions} />
+      {!historyIsHidden ? <History transactions={historyTransactions} /> : null}
       <MessageModal
         variable={modalIsHidden}
         function={toggleModal}
