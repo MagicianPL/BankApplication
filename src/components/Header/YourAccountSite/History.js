@@ -1,13 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 
 const History = ({ transactions }) => {
   console.log(transactions);
   return (
     <div className="history">
       {transactions.map((transaction) => {
-        const { title, amount, date } = transaction;
+        const { title, amount, date, income } = transaction;
         return (
-          <div className="transaction">
+          <div
+            className="transaction"
+            style={!income ? { color: "red" } : null}
+          >
             <p className="transaction-date">{date.toLocaleDateString()}</p>
             <p className="transaction-title">{title}</p>
             <p className="amount">{amount.toFixed(2)} PLN</p>

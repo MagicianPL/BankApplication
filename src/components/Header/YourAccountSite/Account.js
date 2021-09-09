@@ -117,6 +117,7 @@ const Account = (props) => {
         <button onClick={decrease}>Zrób przelew</button>
         <button
           onClick={() => {
+            /*toggling history*/
             setHistoryIsHidden(!historyIsHidden);
           }}
         >
