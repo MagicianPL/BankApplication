@@ -62,6 +62,18 @@ const Account = (props) => {
     console.log(isVisible.visibility);
   });
 
+  const newTransaction = () => {
+    //adding new transaction to an array of transactions (triggered in convert fn)
+    const transaction = {
+      title: "Przewalutowanie na euro",
+      amount: 100,
+      date: new Date(),
+      income: false,
+    };
+
+    historyTransactions.unshift(transaction);
+  };
+
   const convert = () => {
     if (isPln) {
       const amount = (accountBalance / props.euro - 5).toFixed(2);
@@ -69,6 +81,7 @@ const Account = (props) => {
       setIsPln(!isPln);
       setConvertButtonText(!convertButtonText);
       setModalIsHidden(true);
+      newTransaction();
     } else {
       const amount = (accountBalance * props.euro).toFixed(2);
       setAccountBalance(amount);
