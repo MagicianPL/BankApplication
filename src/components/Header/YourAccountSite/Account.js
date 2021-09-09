@@ -66,7 +66,7 @@ const Account = (props) => {
     //adding new transaction to an array of transactions (triggered in convert fn)
     const transaction = {
       title: "Przewalutowanie na euro",
-      amount: 100,
+      amount: props.euro * 5 + 0.01,
       date: new Date(),
       income: false,
     };
