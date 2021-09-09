@@ -558,21 +558,23 @@ h3 {
   width: 100%;
   min-height: 50vh;
   padding-top: 35px;
-  border: 1px solid red;
-  font-size: 2.4rem;
+  font-size: 20px;
   font-weight: bold;
 }
 
 .transaction {
   max-width: 1000px;
-  border: 1px solid grey;
+  border-bottom: 1px solid grey;
   display: flex;
   margin: 0 auto;
   justify-content: space-around;
+  padding-bottom: 10px;
+  margin-bottom: 25px;
 }
 
 .transaction p {
-  border: 1px solid red;
+  flex: 1;
+  text-align: center;
 }
 
 .message-modal {

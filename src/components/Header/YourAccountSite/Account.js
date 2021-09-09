@@ -103,7 +103,7 @@ const Account = (props) => {
         <button onClick={decrease}>Zrób przelew</button>
         <button>Historia</button>
       </div>
-      <History />
+      <History transactions={historyTransactions} />
       <MessageModal
         variable={modalIsHidden}
         function={toggleModal}
