@@ -51,21 +51,29 @@ const Currencies = (props) => {
   return (
     <section>
       <div className="currencies">
-        <h2>Kursy walut na dzień {date}</h2>
-        <div className="currencies-container">
-          {currenciesObjects.map((obj) => {
-            const { code, mid, currency } = obj;
-            return (
-              <h4 key={code}>
-                {currency} {code} : {mid.toFixed(4)}
+        {currenciesObjects.length > 0 ? (
+          <>
+            {" "}
+            <h2>Kursy walut na dzień {date}</h2>
+            <div className="currencies-container">
+              {currenciesObjects.map((obj) => {
+                const { code, mid, currency } = obj;
+                return (
+                  <h4 key={code}>
+                    {currency} {code} : {mid.toFixed(4)}
+                  </h4>
+                );
+              })}
+              <h4>
+                ZŁOTO: wyliczona w NBP cena 1 g złota (w próbie 1000) -{" "}
+                {priceGold}
+                zł
               </h4>
-            );
-          })}
-          <h4>
-            ZŁOTO: wyliczona w NBP cena 1 g złota (w próbie 1000) - {priceGold}
-            zł
-          </h4>
-        </div>
+            </div>
+          </>
+        ) : (
+          <h2>Kursy walut w trakcie ładowania...</h2>
+        )}
       </div>
     </section>
   );
