@@ -1,4 +1,6 @@
 import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faRedo } from "@fortawesome/free-solid-svg-icons";
 
 import "./CalculateCredit.css";
 
@@ -17,8 +19,18 @@ const CalculateCredit = () => {
         kredytu
       </p>
       <div className="input-section">
-        Chcę wziąć kredyt na <input type="number" min="0" placeholder="10" /> lat i <input type="number" min="0" placeholder="0" /> miesięcy
+        <p>
+          Kwota pożyczki: <input type="number" min="100" placeholder="10000" />
+          <span className="info">
+            (Wpisz pełną kwotę bez znaków kropki czy przecinka)
+          </span>
+        </p>
+        <p>
+          Chcę wziąć kredyt na <input type="number" min="0" placeholder="10" />{" "}
+          lat i <input type="number" min="0" placeholder="0" /> miesięcy
+        </p>
       </div>
+      <button><FontAwesomeIcon icon={faRedo} />PRZELICZ</button>
     </section>
   );
 };
