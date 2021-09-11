@@ -1,0 +1,15 @@
+#credit {
+  border: 1px solid red;
+  min-height: 100vh;
+  position: relative;
+}
+
+#credit::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("happyPerson.jpg");
+  background-size: cover;
+  background-position: top;
+  opacity: 0.4;
+}

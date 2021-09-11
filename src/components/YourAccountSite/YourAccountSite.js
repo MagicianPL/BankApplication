@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCog } from "@fortawesome/free-solid-svg-icons";
 import Account from "./Account";
 import Currencies from "./Currencies";
+import CalculateCredit from "./CalculateCredit";
 
 import "./YourAccountSite.css";
 
@@ -24,6 +25,7 @@ const YourAccountSite = ({ login }) => {
       </div>
       <Account euro={euroMid} />
       <Currencies prop={saveEuro} />
+      <CalculateCredit />
     </div>
   );
 };

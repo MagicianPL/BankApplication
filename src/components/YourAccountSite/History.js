@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import "./History.css";
 
 const History = ({ transactions }) => {
-  console.log(transactions);
   return (
     <div className="history">
       {transactions.map((transaction, index) => {
