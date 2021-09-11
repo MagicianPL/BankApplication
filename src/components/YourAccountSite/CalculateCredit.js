@@ -6,9 +6,86 @@ import "./CalculateCredit.css";
 
 const CalculateCredit = () => {
   const [showInstallmentInfo, setShowInstallmentInfo] = useState(false);
+  const [showErrorInfo, setShowErrorInfo] =
+    useState(false); /*This is error div for inputs validation*/
   const [creditValue, setCreditValue] = useState("");
   const [years, setYears] = useState("");
   const [months, setMonths] = useState("");
+  const [installment, setInstallment] = useState(null);
+  const isValid = /^\d+$/;
+
+  const calculating = () => {
+    const percentages = (0.065 * creditValue) / 12;
+    setInstallment(creditValue / (years * 12 + months) + percentages);
+    //This is value of credit installment
+    setShowInstallmentInfo(true);
+  };
+
+  const checkValue = () => {
+    if (!creditValue || !isValid.test(creditValue)) {
+      setShowErrorInfo(true);
+    } else {
+      return true;
+    }
+  };
+
+  const checkYearsNMonths = () => {
+    if (!years && !months) {
+      setShowErrorInfo(true);
+    } else {
+      return true;
+    }
+  };
+
+  const checkYears = () => {
+    if (years) {
+      if (!isValid.test(years)) {
+        setShowErrorInfo(true);
+      } else {
+        return true;
+      }
+    }
+  };
+
+  const checkMonths = () => {
+    if (months) {
+      if (!isValid.test(months)) {
+        setShowErrorInfo(true);
+      } else {
+        return true;
+      }
+    }
+  };
+
+  const inputsValidation = () => {
+    if (!creditValue || !isValid.test(creditValue)) {
+      setShowErrorInfo(true);
+    } else if (!years && !months) {
+      setShowErrorInfo(true);
+    } else if (years && months) {
+      if (!isValid.test(months) || !isValid.test(years)) {
+        setShowErrorInfo(true);
+      } else {
+        setShowErrorInfo(false);
+        calculating();
+      }
+    } else if (years) {
+      if (isValid.test(years)) {
+        setShowErrorInfo(false);
+        calculating();
+      } else {
+        setShowErrorInfo(true);
+      }
+    } else if (months) {
+      if (!isValid.test(months)) {
+        setShowErrorInfo(true);
+      } else {
+        setShowErrorInfo(false);
+        calculating();
+      }
+    }
+  };
+
   return (
     <section id="credit">
       <h2>
@@ -32,6 +109,7 @@ const CalculateCredit = () => {
             value={creditValue}
             onChange={(e) => {
               setCreditValue(e.target.value);
+              setShowInstallmentInfo(false);
             }}
           />
           <span className="info">
@@ -47,6 +125,7 @@ const CalculateCredit = () => {
             value={years}
             onChange={(e) => {
               setYears(e.target.value);
+              setShowInstallmentInfo(false);
             }}
           />
           {"\u00A0"}lat i{"\u00A0"}
@@ -57,6 +136,7 @@ const CalculateCredit = () => {
             value={months}
             onChange={(e) => {
               setMonths(e.target.value);
+              setShowInstallmentInfo(false);
             }}
           />{" "}
           {"\u00A0"}miesięcy
@@ -65,16 +145,17 @@ const CalculateCredit = () => {
 
       {showInstallmentInfo ? (
         <div className="installment-info">
-          Jeśli przyznamy Ci XXX złotych kredytu na X lat i X miesięcy, Twoja
-          rata będzie wynosiła tylko XXX złotych miesięcznie
+          Jeśli przyznamy Ci {creditValue} złotych kredytu na{" "}
+          {years ? `${years} lat` : null}
+          {years && months ? " i " : null}
+          {months ? `${months} miesięcy` : null}, Twoja rata będzie wynosiła
+          tylko {installment.toFixed(2)} złotych miesięcznie
         </div>
       ) : null}
-
-      <button
-        onClick={() => {
-          setShowInstallmentInfo(true);
-        }}
-      >
+      {showErrorInfo ? (
+        <div className="error-info">Błędnie wypełnione pola!</div>
+      ) : null}
+      <button onClick={inputsValidation}>
         <FontAwesomeIcon icon={faRedo} />
         PRZELICZ
       </button>
