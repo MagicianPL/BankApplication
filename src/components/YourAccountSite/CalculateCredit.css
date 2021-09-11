@@ -19,7 +19,7 @@
 #credit h2 {
   text-align: center;
   font-size: 3.5rem;
-  margin-bottom: 6rem;
+  margin-bottom: 10rem;
 }
 
 #credit > p {
@@ -35,7 +35,7 @@
 }
 
 .input-section {
-  margin-top: 8.5rem;
+  margin-top: 9.5rem;
   max-width: 1400px;
   text-align: center;
   font-size: 2.9rem;
@@ -69,7 +69,7 @@
   cursor: pointer;
   transition: all 0.3s;
   font-weight: bold;
-  margin-top: 4rem;
+  margin-top: 5rem;
 }
 
 #credit button:hover {
@@ -83,4 +83,13 @@
 
 #credit button:hover svg {
   transform: rotate(360deg);
+}
+
+.installment-info {
+  max-width: 1000px;
+  text-align: center;
+  font-size: 2.9rem;
+  color: rgb(8, 73, 8);
+  font-weight: bold;
+  margin: 3.5rem auto 0 auto;
 }
