@@ -16,7 +16,9 @@ const CalculateCredit = () => {
         Wybierz kwotę pożyczki oraz czas spłaty, a my wyliczymy Twoją ratę
         kredytu
       </p>
-      <div className="input-section"></div>
+      <div className="input-section">
+        Chcę wziąć kredyt na <input type="number" min="0" placeholder="10" /> lat i <input type="number" min="0" placeholder="0" /> miesięcy
+      </div>
     </section>
   );
 };
