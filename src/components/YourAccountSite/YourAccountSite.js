@@ -7,7 +7,7 @@ import Currencies from "./Currencies";
 
 import "./YourAccountSite.css";
 
-const YourAccountSite = () => {
+const YourAccountSite = ({ login }) => {
   const [euroMid, setEuroMid] = useState("");
 
   const saveEuro = (obj) => {
@@ -17,7 +17,9 @@ const YourAccountSite = () => {
   return (
     <div className="your-account-site">
       <div className="top-bar">
-        <p>{<FontAwesomeIcon icon={faCog} />}Witaj, NICK</p>
+        <p>
+          {<FontAwesomeIcon icon={faCog} />}Witaj, {login}
+        </p>
         <Nav />
       </div>
       <Account euro={euroMid} />

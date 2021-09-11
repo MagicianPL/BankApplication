@@ -2,7 +2,7 @@ import React, { useState, useRef } from "react";
 import ReactDOM from "react-dom";
 
 import "./LogInBox.css";
-const LogInBox = () => {
+const LogInBox = ({setLogin}) => {
   let randomCode; //przypiszę tutaj losowy kod z tablicy, będzie wyświetlony w boxie
   const codes = ["Gsj38Fq", "du5fP", "372yZ", "75cT74", "1bQ7dTG"];
 
@@ -35,6 +35,7 @@ const LogInBox = () => {
     if (inputLogin.current.value === "") {
       setErrorLoginIsHidden(displayBlock);
     } else {
+      setLogin(inputLogin.current.value);
       setErrorLoginIsHidden(displayHidden);
     }
   };
