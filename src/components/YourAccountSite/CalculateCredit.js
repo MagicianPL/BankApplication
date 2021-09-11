@@ -13,6 +13,7 @@ const CalculateCredit = () => {
   const [months, setMonths] = useState("");
   const [installment, setInstallment] = useState(null);
   const isValid = /^\d+$/;
+  /*const isValid = /^([1-9])$/;*/
 
   const calculating = () => {
     const percentages = (0.065 * creditValue) / 12;
@@ -58,12 +59,12 @@ const CalculateCredit = () => {
   };
 
   const inputsValidation = () => {
-    if (!creditValue || !isValid.test(creditValue)) {
+    if (!creditValue || !isValid.test(creditValue) || creditValue === "0") {
       setShowErrorInfo(true);
     } else if (!years && !months) {
       setShowErrorInfo(true);
     } else if (years && months) {
-      if (!isValid.test(months) || !isValid.test(years)) {
+      if (years === "0" && months === "0") {
         setShowErrorInfo(true);
       } else {
         setShowErrorInfo(false);
@@ -132,7 +133,7 @@ const CalculateCredit = () => {
           <input
             type="number"
             min="0"
-            placeholder="0"
+            placeholder="1"
             value={months}
             onChange={(e) => {
               setMonths(e.target.value);

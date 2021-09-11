@@ -6,10 +6,10 @@ const Nav = () => {
   return (
     <nav>
       <ul>
-        <li>Lorem</li>
-        <li>Lorem Ipsum</li>
-        <li>Lorem</li>
-        <li>Ipsum</li>
+        <li>O Banku</li>
+        <li>Kredyty</li>
+        <li>Kryptowaluty</li>
+        <li>Lokata dla Ciebie</li>
       </ul>
     </nav>
   );
