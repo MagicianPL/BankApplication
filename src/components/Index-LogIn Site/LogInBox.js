@@ -18,7 +18,10 @@ const LogInBox = () => {
     visibility: "visible",
   };
 
-  const [isHidden, setDisplay] = useState(displayHidden);
+  /*const [isHidden, setDisplay] = useState(displayHidden);*/
+  const [errorLoginIsHidden, setErrorLoginIsHidden] = useState(displayHidden);
+  const [errorPassIsHidden, setErrorPassinIsHidden] = useState(displayHidden);
+  const [errorCodeIsHidden, setErrorCodeIsHidden] = useState(displayHidden);
 
   const choosingRandomCode = () => {
     //Fn losuje kod z tablicy
@@ -28,18 +31,34 @@ const LogInBox = () => {
 
   choosingRandomCode(); //wywołuję funkcję
 
-  const checkForm = () => {
-    if (
-      inputLogin.current.value === "" ||
-      inputPassword.current.value === "" ||
-      inputCode.current.value === ""
-    ) {
-      setDisplay(displayBlock);
+  const checkLogin = () => {
+    if (inputLogin.current.value === "") {
+      setErrorLoginIsHidden(displayBlock);
+    } else {
+      setErrorLoginIsHidden(displayHidden);
     }
+  };
 
-    inputLogin.current.value = "";
-    inputPassword.current.value = "";
-    inputCode.current.value = "";
+  const checkPassword = () => {
+    if (inputPassword.current.value !== "0000") {
+      setErrorPassinIsHidden(displayBlock);
+    } else {
+      setErrorPassinIsHidden(displayHidden);
+    }
+  };
+
+  const checkCode = () => {
+    if (inputCode.current.value !== randomCode) {
+      setErrorCodeIsHidden(displayBlock);
+    } else {
+      setErrorCodeIsHidden(displayHidden);
+    }
+  };
+
+  const checkForm = () => {
+    checkLogin();
+    checkPassword();
+    checkCode();
   };
 
   return (
@@ -52,7 +71,7 @@ const LogInBox = () => {
           placeholder="Login"
           ref={inputLogin}
         />
-        <p className="error-login error" style={isHidden}>
+        <p className="error-login error" style={errorLoginIsHidden}>
           Podano zły login
         </p>
       </label>
@@ -65,14 +84,14 @@ const LogInBox = () => {
           className="password"
           ref={inputPassword}
         />
-        <p className="error-password error" style={isHidden}>
+        <p className="error-password error" style={errorPassIsHidden}>
           Podano złe hasło
         </p>
       </label>
       <p className="code">{randomCode}</p>
       <p>Przepisz powyższy kod:</p>
       <input type="text" ref={inputCode} />
-      <p className="error-code error" style={isHidden}>
+      <p className="error-code error" style={errorCodeIsHidden}>
         Podano zły kod
       </p>
       <button onClick={checkForm}>Zaloguj</button>
