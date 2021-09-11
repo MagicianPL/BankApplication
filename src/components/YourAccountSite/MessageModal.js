@@ -1,5 +1,7 @@
 import React from "react";
 
+import "./MessageModal.css";
+
 const MessageModal = (props) => {
   const modalBoolean = props.variable;
 

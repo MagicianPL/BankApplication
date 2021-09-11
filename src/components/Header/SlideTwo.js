@@ -2,6 +2,8 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBolt } from "@fortawesome/free-solid-svg-icons";
 
+import "./SlideTwo.css";
+
 const SlideTwo = () => {
   return (
     <div className="slide-two">

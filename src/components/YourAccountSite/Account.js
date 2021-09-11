@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import MessageModal from "./MessageModal";
 import History from "./History";
 
+import "./Account.css";
+
 const historyTransactions = [
   {
     title: "Żabka - artykuły spożywcze",

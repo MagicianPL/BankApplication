@@ -4,6 +4,8 @@ import SlideOne from "./SlideOne";
 import SlideTwo from "./SlideTwo";
 import SlideThree from "./SlideThree";
 
+import "./Header.css";
+
 const Header = () => {
   return (
     <header>

@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 
+import "./Currencies.css";
+
 const Currencies = (props) => {
   const [currenciesObjects, setCurrenciesObjects] = useState([]);
   const [date, setDate] = useState("");

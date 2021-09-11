@@ -1,0 +1,39 @@
+.wrapper-animations {
+  width: 65rem;
+  height: 60rem;
+  margin: 0 auto 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.wrapper-animations::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("trophy.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.3;
+  z-index: -1;
+  transition: opacity 1.5s;
+}
+
+.wrapper-animations:hover::before {
+  opacity: 0.7;
+}
+
+.wrapper-animations::after {
+  content: "ZŁOTY LAUR KONSUMENTA";
+  position: absolute;
+  inset: 0;
+  font-size: 3rem;
+  font-style: italic;
+  opacity: 0.2;
+  z-index: -1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 1.5s;
+}

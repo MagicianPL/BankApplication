@@ -1,0 +1,55 @@
+.slide-two {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  background-image: url("slidetwo.jpg");
+  background-size: cover;
+  background-position: center;
+  z-index: 5;
+  transform: translateX(100%);
+  animation: fromRight 2s forwards;
+  animation-delay: 7.5s;
+}
+
+.perspective {
+  font-size: 6.5rem;
+  letter-spacing: 12px;
+  font-weight: bold;
+  padding: 40px 0 0 20px;
+  flex: 1;
+  transform: rotate(-7deg);
+}
+
+.flex-container {
+  display: flex;
+  width: 100%;
+  height: calc(100% - 50px);
+  margin: 25px 0;
+  position: relative;
+}
+
+.flex-container::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgb(238, 221, 221);
+  opacity: 0.5;
+  z-index: -1;
+}
+
+.flex-columns {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  color: green;
+}
+
+.flex-columns p {
+  font-size: 4rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+}

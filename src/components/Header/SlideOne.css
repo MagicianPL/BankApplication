@@ -1,0 +1,82 @@
+header h2 {
+  font-size: 6rem;
+  z-index: 5;
+  color: black;
+  padding-top: 2rem;
+  transform: translateX(-100%);
+  animation: from-left 1s forwards;
+  animation-delay: 1s;
+}
+
+@keyframes from-left {
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.slide-one {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  animation: slideOne 10s forwards;
+  animation-delay: 10s;
+}
+
+.slide-one * {
+  width: 65%; /*because absolute element has this width n I want center this*/
+  text-align: center;
+}
+
+.slide-one p {
+  font-size: 2.8rem;
+  margin-top: 1.8rem;
+  transform: translateY(100%);
+  opacity: 0;
+  animation: from-bottom 1s forwards;
+  animation-delay: 2.5s;
+}
+
+@keyframes from-bottom {
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.slide-one p:nth-child(3) {
+  color: green;
+  animation-delay: 3.5s;
+}
+
+.slide-one p:nth-child(4) {
+  padding-top: 2rem;
+  font-size: 2.2rem;
+  animation-delay: 4.5s;
+}
+
+.slide-one::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 300px;
+  width: 65%;
+  background-color: mintcream;
+  opacity: 0.55;
+  -webkit-clip-path: polygon(0 0, 100% 0, 90% 100%, 0% 100%);
+  clip-path: polygon(0 0, 100% 0, 90% 100%, 0% 100%);
+  z-index: -1;
+}
+
+.slide-one::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("slideone.jpg");
+  background-size: cover;
+  background-position: center;
+  opacity: 1;
+  z-index: -2;
+  background-position: 0% 10%;
+}

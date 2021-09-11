@@ -8,6 +8,8 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 /*<FontAwesomeIcon icon={faHandshake, faMoneyBill, faEuroSign} />*/
 
+import "./WrapperAnimations.css";
+
 const WrapperAnimations = () => {
   return (
     <div className="wrapper-animations">

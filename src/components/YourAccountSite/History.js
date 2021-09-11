@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 
+import "./History.css";
+
 const History = ({ transactions }) => {
   console.log(transactions);
   return (

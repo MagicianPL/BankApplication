@@ -1,0 +1,101 @@
+.LogInBox {
+  width: 30rem;
+  min-height: 45rem;
+  margin: 5rem 0 8rem 5rem;
+  padding: 15px;
+  text-align: left;
+  position: relative;
+}
+
+.LogInBox::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgb(189, 182, 182);
+  z-index: -2;
+}
+
+.LogInBox::before {
+  content: "";
+  position: absolute;
+  inset: 5px;
+  background-color: rgb(245, 255, 250);
+  border-radius: 8px;
+  z-index: -1;
+}
+
+label {
+  font-weight: bold;
+}
+
+.LogInBox input {
+  display: block;
+  margin: 20px auto 5px auto;
+  height: 30px;
+  border-radius: 5px;
+  padding-left: 10px;
+  font-size: 20px;
+  border: 1px solid black;
+  outline: none;
+}
+
+.LogInBox .error {
+  color: red;
+  font-size: 14px;
+  text-align: center;
+  font-weight: normal;
+}
+
+.LogInBox button {
+  width: 70%;
+  height: 40px;
+  font-weight: bold;
+  color: white;
+  border: none;
+  display: block;
+  margin: 25px auto 0 auto;
+  border-radius: 7px;
+  font-size: 25px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.LogInBox button::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 7px;
+  background-color: green;
+  z-index: -2;
+}
+
+.LogInBox button::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 7px;
+  background-color: rgb(18, 197, 18);
+  transform: translate(-100%);
+  transition: transform 0.3s;
+  opacity: 0.5;
+  z-index: -1;
+}
+
+.LogInBox button:hover::after {
+  transform: translate(0);
+}
+
+.LogInBox .code {
+  text-align: center;
+  font-weight: bold;
+  letter-spacing: 5px;
+  margin-top: 20px;
+  margin-bottom: 5px;
+  font-size: 25px;
+}
+
+.LogInBox p {
+  text-align: center;
+}
