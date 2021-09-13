@@ -64,7 +64,7 @@ const Account = (props) => {
     //adding new transaction to an array of transactions (triggered in convert fn)
     const transaction = {
       title: "Przewalutowanie na euro",
-      amount: props.euro * 5 + 0.01,
+      amount: props.euro.toFixed(2) * 5,
       date: new Date(),
       income: false,
     };
@@ -74,14 +74,21 @@ const Account = (props) => {
 
   const convert = () => {
     if (isPln) {
-      const amount = (accountBalance / props.euro - 5).toFixed(2);
+      const amount = (accountBalance / props.euro.toFixed(2) - 5).toFixed(2);
+      console.log(
+        `${accountBalance} / ${props.euro.toFixed(2)} - 5 = ` +
+          (accountBalance / props.euro.toFixed(2) - 5).toFixed(2)
+      );
+      console.log(props.euro * 5);
       setAccountBalance(amount);
       setIsPln(!isPln);
       setConvertButtonText(!convertButtonText);
       setModalIsHidden(true);
       newTransaction();
     } else {
-      const amount = (accountBalance * props.euro).toFixed(2);
+      const amount = (accountBalance * props.euro.toFixed(2)).toFixed(2);
+      console.log(`${accountBalance} * ${props.euro.toFixed(2)}`);
+      console.log((accountBalance * props.euro.toFixed(2)).toFixed(2));
       setAccountBalance(amount);
       setIsPln(!isPln);
       setConvertButtonText(!convertButtonText);
