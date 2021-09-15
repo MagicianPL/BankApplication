@@ -81,6 +81,13 @@ h1 span {
   flex: 2;
 }
 
+.money .input-error {
+  text-align: center;
+  color: red;
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+}
+
 .deposit .money input {
   max-width: 150px;
   height: 35px;

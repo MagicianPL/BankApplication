@@ -4,10 +4,13 @@ import "./DepositSite.css";
 
 const DepositSite = (props) => {
   const [monthsValue, setMonthsValue] = useState("");
+  const [inputIsHidden, setInputIsHidden] = useState(true);
+  const [errorIsHidden, setErrorIsHidden] = useState(true);
+  const [answerIsHidden, setAnswerIsHidden] = useState(true);
 
   const setMonths = (e) => {
-    console.log(e.target.value);
     setMonthsValue(e.target.value);
+    setInputIsHidden(false);
   };
 
   return (
@@ -35,12 +38,19 @@ const DepositSite = (props) => {
             36 miesięcy
           </button>
         </div>
-        <div className="money">
+        <div
+          className="money"
+          style={inputIsHidden ? { visibility: "hidden" } : null}
+        >
           <p className="mini-header">Ile chcesz ulokować?</p>
+          <p className="input-error">{errorIsHidden ? null : "Błędnie wpisana kwota"}</p>
           <input type="number" />
           <p>(Wpisz pełną kwotę bez znaków kropki czy przecinka)</p>
         </div>
-        <div className="deposit-info">
+        <div
+          className="deposit-info"
+          style={answerIsHidden ? { visibility: "hidden" } : null}
+        >
           Nieźle! Po wybranym okresie zarobisz XXX złotych!
         </div>
       </div>
