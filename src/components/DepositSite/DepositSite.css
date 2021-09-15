@@ -134,4 +134,7 @@ h1 span {
   font-size: 3.5rem;
   font-weight: bold;
   text-align: center;
+  justify-content: flex-start;
+  color: darkgreen;
+  padding-top: 25px;
 }

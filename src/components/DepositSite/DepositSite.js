@@ -14,7 +14,7 @@ const DepositSite = (props) => {
   const [earnings, setEarnings] = useState("");
 
   const calculateEarnings = () => {
-    setEarnings((0.05 * parseInt(inputValue)).toFixed(2));
+    setEarnings(parseInt(((0.05 * inputValue) / 12) * monthsValue).toFixed(2));
   };
 
   const validateInput = () => {
@@ -36,6 +36,7 @@ const DepositSite = (props) => {
   const setMonths = (e) => {
     setMonthsValue(e.target.value);
     setInputIsHidden(false);
+    setAnswerIsHidden(true);
   };
 
   const setAnswer = () => {
@@ -78,7 +79,10 @@ const DepositSite = (props) => {
           <input
             type="number"
             value={inputValue}
-            onChange={(e) => setInputValue(e.target.value)}
+            onChange={(e) => {
+              setInputValue(e.target.value);
+              setAnswerIsHidden(true);
+            }}
           />
           <p className="p-info">
             (Wpisz pełną kwotę bez znaków kropki czy przecinka)
@@ -91,7 +95,8 @@ const DepositSite = (props) => {
           className="deposit-info"
           style={answerIsHidden ? { visibility: "hidden" } : null}
         >
-          Nieźle! Po wybranym okresie zarobisz {earnings} złotych!
+          Nieźle! Po upływie {monthsValue} miesięcy zarobisz aż {earnings}{" "}
+          złotych!
         </div>
       </div>
     </div>
