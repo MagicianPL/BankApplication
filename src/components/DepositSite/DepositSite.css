@@ -37,8 +37,7 @@ h1 span {
   min-height: 30rem;
 }
 
-.deposit * {
-  border: 1px solid grey;
+.deposit > * {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -78,4 +77,28 @@ h1 span {
 
 .deposit .deposit-info {
   flex: 2;
+}
+
+.deposit .money input {
+  max-width: 150px;
+  height: 35px;
+  border-radius: 7px;
+  border: 1px solid black;
+  padding-left: 6px;
+  background: none;
+  font-weight: bold;
+  font-size: 2.2rem;
+  margin-bottom: 15px;
+}
+
+.money input:hover {
+  border: 1px solid darkgreen;
+}
+
+.money input:focus {
+  outline: none;
+}
+
+.money p:last-child {
+  font-size: 16px;
 }

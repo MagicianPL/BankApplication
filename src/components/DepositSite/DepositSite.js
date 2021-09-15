@@ -19,7 +19,9 @@ const DepositSite = (props) => {
             <p className="time">36 miesięcy</p>
         </div>
         <div className="money">
-            <input type="number"></input>
+            <p className="mini-header">Ile chcesz ulokować?</p>
+            <input type="number" />
+            <p>(Wpisz pełną kwotę bez znaków kropki czy przecinka)</p>
         </div>
         <div className="deposit-info">
             mrkfkrfrmegrkegktrgktr g rtkgtr b ktrg ktr gktgjrngrt
