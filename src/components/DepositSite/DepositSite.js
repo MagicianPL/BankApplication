@@ -7,8 +7,31 @@ import "./DepositSite.css";
 const DepositSite = (props) => {
   const [monthsValue, setMonthsValue] = useState("");
   const [inputIsHidden, setInputIsHidden] = useState(true);
+  const [inputValue, setInputValue] = useState("");
   const [errorIsHidden, setErrorIsHidden] = useState(true);
   const [answerIsHidden, setAnswerIsHidden] = useState(true);
+
+  const [earnings, setEarnings] = useState("");
+
+  const calculateEarnings = () => {
+    setEarnings((0.05 * parseInt(inputValue)).toFixed(2));
+  };
+
+  const validateInput = () => {
+    const isValid = /^\d+$/;
+
+    if (!inputValue) {
+      setErrorIsHidden(false);
+      setAnswerIsHidden(true);
+    } else if (!isValid.test(inputValue)) {
+      setErrorIsHidden(false);
+      setAnswerIsHidden(true);
+    } else {
+      setErrorIsHidden(true);
+      calculateEarnings();
+      setAnswerIsHidden(false);
+    }
+  };
 
   const setMonths = (e) => {
     setMonthsValue(e.target.value);
@@ -52,9 +75,15 @@ const DepositSite = (props) => {
           <p className="input-error">
             {errorIsHidden ? null : "Błędnie wpisana kwota"}
           </p>
-          <input type="number" />
-          <p className="p-info">(Wpisz pełną kwotę bez znaków kropki czy przecinka)</p>
-          <button className="next" onClick={setAnswer}>
+          <input
+            type="number"
+            value={inputValue}
+            onChange={(e) => setInputValue(e.target.value)}
+          />
+          <p className="p-info">
+            (Wpisz pełną kwotę bez znaków kropki czy przecinka)
+          </p>
+          <button className="next" onClick={validateInput}>
             Dalej <FontAwesomeIcon icon={faArrowRight} />
           </button>
         </div>
@@ -62,7 +91,7 @@ const DepositSite = (props) => {
           className="deposit-info"
           style={answerIsHidden ? { visibility: "hidden" } : null}
         >
-          Nieźle! Po wybranym okresie zarobisz XXX złotych!
+          Nieźle! Po wybranym okresie zarobisz {earnings} złotych!
         </div>
       </div>
     </div>
