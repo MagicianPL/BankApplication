@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
 import "./DepositSite.css";
 
@@ -11,6 +13,10 @@ const DepositSite = (props) => {
   const setMonths = (e) => {
     setMonthsValue(e.target.value);
     setInputIsHidden(false);
+  };
+
+  const setAnswer = () => {
+    setAnswerIsHidden(false);
   };
 
   return (
@@ -43,9 +49,14 @@ const DepositSite = (props) => {
           style={inputIsHidden ? { visibility: "hidden" } : null}
         >
           <p className="mini-header">Ile chcesz ulokować?</p>
-          <p className="input-error">{errorIsHidden ? null : "Błędnie wpisana kwota"}</p>
+          <p className="input-error">
+            {errorIsHidden ? null : "Błędnie wpisana kwota"}
+          </p>
           <input type="number" />
-          <p>(Wpisz pełną kwotę bez znaków kropki czy przecinka)</p>
+          <p className="p-info">(Wpisz pełną kwotę bez znaków kropki czy przecinka)</p>
+          <button className="next" onClick={setAnswer}>
+            Dalej <FontAwesomeIcon icon={faArrowRight} />
+          </button>
         </div>
         <div
           className="deposit-info"

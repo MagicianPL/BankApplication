@@ -79,7 +79,7 @@ const Account = (props) => {
   const convert = () => {
     if (isPln) {
       const amount = (
-        accountBalance.toFixed(2) / props.euro.toFixed(2) -
+        parseInt(accountBalance).toFixed(2) / props.euro.toFixed(2) -
         5
       ).toFixed(2);
       console.log(
