@@ -5,6 +5,7 @@ import WrapperAnimations from "./components/Index-LogIn Site/WrapperAnimations";
 import Flex from "./Flex";
 import Test from "./components/Test";
 import YourAccountSite from "./components/YourAccountSite/YourAccountSite";
+import DepositSite from "./components/DepositSite/DepositSite";
 import { useState } from "react";
 
 function App() {
@@ -22,6 +23,8 @@ function App() {
         <WrapperAnimations />
       </Flex>
       <YourAccountSite login={userLogin} />
+      <DepositSite login={userLogin} />
+
     </div>
   );
 }

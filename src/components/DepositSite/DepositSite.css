@@ -1,0 +1,29 @@
+.deposit-site {
+  width: 100%;
+  min-height: 100vh;
+  border: 2px solid blue;
+  position: relative;
+}
+
+.deposit-site::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("2.jpg");
+  background-size: cover;
+  opacity: 0.4;
+  z-index: -1;
+}
+
+.deposit-site h1 {
+  margin: 5rem auto 3rem auto;
+  text-align: center;
+  font-weight: bold;
+  font-size: 4rem;
+  width: 80%;
+  line-height: 1.6;
+}
+
+h1 span {
+  color: darkgreen;
+}
