@@ -27,3 +27,55 @@
 h1 span {
   color: darkgreen;
 }
+
+.deposit {
+  width: 90%;
+  max-width: 1300px;
+  border: 1px solid red;
+  margin: 0 auto;
+  display: flex;
+  min-height: 30rem;
+}
+
+.deposit * {
+  border: 1px solid grey;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.deposit .time-period {
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+}
+
+.mini-header {
+  margin-bottom: 28px;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.time-period .time {
+  height: auto;
+  font-size: 2.8rem;
+  margin-bottom: 2.5rem;
+}
+
+.time-period .time:hover {
+  cursor: pointer;
+  color: darkgreen;
+}
+
+.time-period p:last-child {
+  margin-bottom: 0;
+}
+
+.deposit .money {
+  flex: 1;
+}
+
+.deposit .deposit-info {
+  flex: 2;
+}
