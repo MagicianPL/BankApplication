@@ -8,9 +8,9 @@ const CalculateCredit = () => {
   const [showInstallmentInfo, setShowInstallmentInfo] = useState(false);
   const [showErrorInfo, setShowErrorInfo] =
     useState(false); /*This is error div for inputs validation*/
-  const [creditValue, setCreditValue] = useState("");
-  const [years, setYears] = useState("");
-  const [months, setMonths] = useState("");
+  const [creditValue, setCreditValue] = useState("10000");
+  const [years, setYears] = useState("10");
+  const [months, setMonths] = useState("6");
   const [installment, setInstallment] = useState(null);
   const isValid = /^\d+$/;
   /*const isValid = /^([1-9])$/;*/
@@ -106,7 +106,6 @@ const CalculateCredit = () => {
           <input
             type="number"
             min="100"
-            placeholder="10000"
             value={creditValue}
             onChange={(e) => {
               setCreditValue(e.target.value);
@@ -122,7 +121,6 @@ const CalculateCredit = () => {
           <input
             type="number"
             min="0"
-            placeholder="10"
             value={years}
             onChange={(e) => {
               setYears(e.target.value);
@@ -133,7 +131,6 @@ const CalculateCredit = () => {
           <input
             type="number"
             min="0"
-            placeholder="1"
             value={months}
             onChange={(e) => {
               setMonths(e.target.value);

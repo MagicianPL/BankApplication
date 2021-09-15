@@ -60,11 +60,15 @@ const Account = (props) => {
       : setButtonText("Ukryj saldo");
   };
 
+  function roundToTwo(num) {
+    return +(Math.round(num + "e+2") + "e-2");
+  }
+
   const newTransaction = () => {
     //adding new transaction to an array of transactions (triggered in convert fn)
     const transaction = {
       title: "Przewalutowanie na euro",
-      amount: props.euro.toFixed(2) * 5,
+      amount: props.euro.toFixed(2) * 5 + 0.02,
       date: new Date(),
       income: false,
     };
@@ -74,7 +78,10 @@ const Account = (props) => {
 
   const convert = () => {
     if (isPln) {
-      const amount = (accountBalance / props.euro.toFixed(2) - 5).toFixed(2);
+      const amount = (
+        accountBalance.toFixed(2) / props.euro.toFixed(2) -
+        5
+      ).toFixed(2);
       console.log(
         `${accountBalance} / ${props.euro.toFixed(2)} - 5 = ` +
           (accountBalance / props.euro.toFixed(2) - 5).toFixed(2)
@@ -86,7 +93,10 @@ const Account = (props) => {
       setModalIsHidden(true);
       newTransaction();
     } else {
-      const amount = (accountBalance * props.euro.toFixed(2)).toFixed(2);
+      console.log(accountBalance);
+      const amount = (
+        Number(accountBalance).toFixed(2) * Number(props.euro).toFixed(2)
+      ).toFixed(2);
       console.log(`${accountBalance} * ${props.euro.toFixed(2)}`);
       console.log((accountBalance * props.euro.toFixed(2)).toFixed(2));
       setAccountBalance(amount);
