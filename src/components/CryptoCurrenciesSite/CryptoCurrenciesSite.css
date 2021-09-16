@@ -18,9 +18,12 @@
 .crypto-site table {
   margin: 0 auto;
   font-size: 2.5rem;
+  border-spacing: 25px 15px;
 }
 
 .crypto-site th,
 td {
   border: 1px solid red;
+  padding: 2px;
+  text-align: center;
 }

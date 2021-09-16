@@ -1,15 +1,22 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 import "./CryptoCurrenciesSite.css";
 
 const CryptoCurrenciesSite = () => {
   /*  4b12c0ec1320606bcc4fc5ff33fe66cd85a618c3 */
 
-  fetch(
-    "https://api.nomics.com/v1/currencies/ticker?key=4b12c0ec1320606bcc4fc5ff33fe66cd85a618c3&ids=BTC,ETH,ADA,XRP&interval=1d,30d&convert=EUR&per-page=100&page=1"
-  )
-    .then((response) => response.json())
-    .then((data) => console.log(data));
+  const [cryptos, setCryptos] = useState([]);
+
+  useEffect(() => {
+    fetch(
+      "https://api.nomics.com/v1/currencies/ticker?key=4b12c0ec1320606bcc4fc5ff33fe66cd85a618c3&ids=BTC,ETH,ADA,XRP&interval=1d,30d&convert=EUR&per-page=100&page=1"
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        setCryptos(data);
+        console.log(data);
+      });
+  }, []);
 
   return (
     <div className="crypto-site">
@@ -29,6 +36,18 @@ const CryptoCurrenciesSite = () => {
             <td>3453.68 EUR</td>
             <td>3934.56</td>
           </tr>
+          {cryptos.map((obj) => {
+            const { symbol, high, name, price } = obj;
+
+            return (
+              <tr>
+                <td>{name}</td>
+                <td>{symbol}</td>
+                <td>{parseInt(price).toFixed(4)} EUR</td>
+                <td>{parseInt(high).toFixed(4)} EUR</td>
+              </tr>
+            );
+          })}
         </tbody>
       </table>
     </div>
