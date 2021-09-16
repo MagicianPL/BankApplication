@@ -9,7 +9,7 @@ const CryptoCurrenciesSite = () => {
 
   useEffect(() => {
     fetch(
-      "https://api.nomics.com/v1/currencies/ticker?key=4b12c0ec1320606bcc4fc5ff33fe66cd85a618c3&ids=BTC,ETH,ADA,XRP&interval=1d,30d&convert=EUR&per-page=100&page=1"
+      "https://api.nomics.com/v1/currencies/ticker?key=4b12c0ec1320606bcc4fc5ff33fe66cd85a618c3&ids=BTC,ETH,DOT,DOGE,LTC,LUNA,ATOM,ADA,&interval=1d,30d&convert=EUR&per-page=100&page=1"
     )
       .then((response) => response.json())
       .then((data) => {
@@ -30,21 +30,15 @@ const CryptoCurrenciesSite = () => {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>Ethereum</td>
-            <td>ETH</td>
-            <td>3453.68 EUR</td>
-            <td>3934.56</td>
-          </tr>
           {cryptos.map((obj) => {
             const { symbol, high, name, price } = obj;
 
             return (
-              <tr>
+              <tr key={symbol}>
                 <td>{name}</td>
                 <td>{symbol}</td>
-                <td>{parseInt(price).toFixed(4)} EUR</td>
-                <td>{parseInt(high).toFixed(4)} EUR</td>
+                <td>{parseFloat(price).toFixed(4)} EUR</td>
+                <td>{parseFloat(high).toFixed(4)} EUR</td>
               </tr>
             );
           })}
