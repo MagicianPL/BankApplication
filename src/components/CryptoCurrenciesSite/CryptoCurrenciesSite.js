@@ -8,18 +8,24 @@ const CryptoCurrenciesSite = () => {
   const [cryptos, setCryptos] = useState([]);
 
   useEffect(() => {
-    fetch(
-      "https://api.nomics.com/v1/currencies/ticker?key=4b12c0ec1320606bcc4fc5ff33fe66cd85a618c3&ids=BTC,ETH,DOT,DOGE,LTC,LUNA,ATOM,ADA,&interval=1d,30d&convert=EUR&per-page=100&page=1"
-    )
-      .then((response) => response.json())
-      .then((data) => {
-        setCryptos(data);
-        console.log(data);
-      });
+    const interval = setInterval(() => {
+      fetch(
+        "https://api.nomics.com/v1/currencies/ticker?key=4b12c0ec1320606bcc4fc5ff33fe66cd85a618c3&ids=BTC,ETH,DOT,DOGE,LTC,LUNA,ATOM,ADA,&interval=1d,30d&convert=EUR&per-page=100&page=1"
+      )
+        .then((response) => response.json())
+        .then((data) => {
+          setCryptos(data);
+          console.log("getting data");
+        });
+    }, 10000);
+    return () => {
+      clearInterval(interval);
+    };
   }, []);
 
   return (
     <div className="crypto-site">
+      <p className="fetching-info">(dane odświeżane są co 10 sekund)</p>
       <table>
         <thead>
           <tr>
@@ -36,7 +42,9 @@ const CryptoCurrenciesSite = () => {
             return (
               <tr key={symbol}>
                 <td>{name}</td>
-                <td>{symbol}</td>
+                <td>
+                  <i>{symbol}</i>
+                </td>
                 <td>{parseFloat(price).toFixed(4)} EUR</td>
                 <td>{parseFloat(high).toFixed(4)} EUR</td>
               </tr>
