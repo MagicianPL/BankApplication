@@ -3,8 +3,6 @@ import React, { useState, useEffect } from "react";
 import "./CryptoCurrenciesSite.css";
 
 const CryptoCurrenciesSite = () => {
-  /*  4b12c0ec1320606bcc4fc5ff33fe66cd85a618c3 */
-
   const [cryptos, setCryptos] = useState([]);
 
   useEffect(() => {
@@ -15,7 +13,6 @@ const CryptoCurrenciesSite = () => {
         .then((response) => response.json())
         .then((data) => {
           setCryptos(data);
-          console.log("getting data");
         });
     }, 10000);
     return () => {
@@ -25,33 +22,37 @@ const CryptoCurrenciesSite = () => {
 
   return (
     <div className="crypto-site">
-      <p className="fetching-info">(dane odświeżane są co 10 sekund)</p>
-      <table>
-        <thead>
-          <tr>
-            <th>WALUTA</th>
-            <th>SYMBOL</th>
-            <th>CENA</th>
-            <th>MAX</th>
-          </tr>
-        </thead>
-        <tbody>
-          {cryptos.map((obj) => {
-            const { symbol, high, name, price } = obj;
-
-            return (
-              <tr key={symbol}>
-                <td>{name}</td>
-                <td>
-                  <i>{symbol}</i>
-                </td>
-                <td>{parseFloat(price).toFixed(4)} EUR</td>
-                <td>{parseFloat(high).toFixed(4)} EUR</td>
-              </tr>
-            );
-          })}
-        </tbody>
-      </table>
+        {cryptos.length !== 0 ? <>
+         <p className="fetching-info">(dane odświeżane są co 10 sekund)</p>
+         <table>
+           <thead>
+             <tr>
+               <th>WALUTA</th>
+               <th>SYMBOL</th>
+               <th>CENA</th>
+               <th>MAX</th>
+             </tr>
+           </thead>
+           <tbody>
+             {cryptos.map((obj) => {
+               const { symbol, high, name, price } = obj;
+   
+               return (
+                 <tr key={symbol}>
+                   <td>{name}</td>
+                   <td>
+                     <i>{symbol}</i>
+                   </td>
+                   <td>{parseFloat(price).toFixed(4)} EUR</td>
+                   <td>{parseFloat(high).toFixed(4)} EUR</td>
+                 </tr>
+               );
+             })}
+           </tbody>
+         </table>
+         </>
+         : <h1>Proszę czekać, pobieram dane...</h1>}
+     
     </div>
   );
 };
