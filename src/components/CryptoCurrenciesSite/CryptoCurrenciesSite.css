@@ -2,6 +2,7 @@
   width: 100%;
   min-height: 100vh;
   position: relative;
+  padding: 6rem 3rem;
 }
 
 .crypto-site::before {
@@ -12,4 +13,14 @@
   background-size: cover;
   opacity: 0.4;
   z-index: -1;
+}
+
+.crypto-site table {
+  margin: 0 auto;
+  font-size: 2.5rem;
+}
+
+.crypto-site th,
+td {
+  border: 1px solid red;
 }

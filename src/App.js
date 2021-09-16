@@ -14,7 +14,7 @@ function App() {
 
   return (
     <div className="App">
-      <Header />
+      {/*<Header />
       <Flex container="flex">
         <LogInBox
           setLogin={(login) => {
@@ -24,9 +24,8 @@ function App() {
         <WrapperAnimations />
       </Flex>
       <YourAccountSite login={userLogin} />
-      <DepositSite login={userLogin} />
+        <DepositSite login={userLogin} />*/}
       <CryptoCurrenciesSite />
-
     </div>
   );
 }
