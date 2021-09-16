@@ -1,9 +1,9 @@
-import React from 'react';
+import React from "react";
 
-import "./CryptoCurrenciesSite.css"
+import "./CryptoCurrenciesSite.css";
 
 const CryptoCurrenciesSite = () => {
-    return ();
+  return <div className="crypto-site"></div>;
 };
 
 export default CryptoCurrenciesSite;

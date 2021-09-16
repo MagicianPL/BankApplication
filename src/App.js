@@ -7,6 +7,7 @@ import Test from "./components/Test";
 import YourAccountSite from "./components/YourAccountSite/YourAccountSite";
 import DepositSite from "./components/DepositSite/DepositSite";
 import { useState } from "react";
+import CryptoCurrenciesSite from "./components/CryptoCurrenciesSite/CryptoCurrenciesSite";
 
 function App() {
   const [userLogin, setUserLogin] = useState("Nieznajomy");
@@ -24,6 +25,7 @@ function App() {
       </Flex>
       <YourAccountSite login={userLogin} />
       <DepositSite login={userLogin} />
+      <CryptoCurrenciesSite />
 
     </div>
   );

@@ -1,0 +1,15 @@
+.crypto-site {
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+}
+
+.crypto-site::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("1.jpg");
+  background-size: cover;
+  opacity: 0.4;
+  z-index: -1;
+}
