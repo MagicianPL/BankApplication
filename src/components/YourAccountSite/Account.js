@@ -60,53 +60,38 @@ const Account = (props) => {
       : setButtonText("Ukryj saldo");
   };
 
-  function roundToTwo(num) {
-    return +(Math.round(num + "e+2") + "e-2");
-  }
-
-  const newTransaction = () => {
+  const newTransaction = (cost) => {
     //adding new transaction to an array of transactions (triggered in convert fn)
+
     const transaction = {
       title: "Przewalutowanie na euro",
-      amount: props.euro.toFixed(2) * 5 + 0.02,
+      amount: ((props.euro / 1) * cost).toFixed(2),
       date: new Date(),
       income: false,
     };
+    console.log(`${props.euro} * ${cost}`);
 
     historyTransactions.unshift(transaction); //new object is added to an array
   };
 
   const convert = () => {
     if (isPln) {
-      const amount = (
-        parseInt(accountBalance).toFixed(2) / props.euro.toFixed(2) -
-        5
-      ).toFixed(2);
-      console.log(
-        `${accountBalance} / ${props.euro.toFixed(2)} - 5 = ` +
-          (accountBalance / props.euro.toFixed(2) - 5).toFixed(2)
-      );
-      console.log(props.euro * 5);
+      const amount = ((1 / props.euro) * accountBalance - 6).toFixed(2);
+      //(original currency / end currency) - it's exchange rate * amount of money to exchange
+
       setAccountBalance(amount);
       setIsPln(!isPln);
       setConvertButtonText(!convertButtonText);
       setModalIsHidden(true);
-      newTransaction();
+      newTransaction(6);
     } else {
-      console.log(accountBalance);
-      const amount = (
-        Number(accountBalance).toFixed(2) * Number(props.euro).toFixed(2)
-      ).toFixed(2);
-      console.log(`${accountBalance} * ${props.euro.toFixed(2)}`);
-      console.log((accountBalance * props.euro.toFixed(2)).toFixed(2));
+      const amount = ((props.euro / 1) * (accountBalance - 6.5)).toFixed(2);
+
       setAccountBalance(amount);
       setIsPln(!isPln);
       setConvertButtonText(!convertButtonText);
+      newTransaction(6.5);
     }
-  };
-
-  const decrease = () => {
-    console.log(accountBalance - 1756.26);
   };
 
   return (
@@ -128,7 +113,7 @@ const Account = (props) => {
 
       <h3>00 2847 2049 0483 0000 9304</h3>
       <div className="actions">
-        <button onClick={decrease}>Zrób przelew</button>
+        <button>Zrób przelew</button>
         <button
           onClick={() => {
             /*toggling history*/

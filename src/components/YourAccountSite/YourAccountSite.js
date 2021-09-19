@@ -5,6 +5,7 @@ import { faCog } from "@fortawesome/free-solid-svg-icons";
 import Account from "./Account";
 import Currencies from "./Currencies";
 import CalculateCredit from "./CalculateCredit";
+import Big from "./Big";
 
 import "./YourAccountSite.css";
 
@@ -14,6 +15,8 @@ const YourAccountSite = ({ login }) => {
   const saveEuro = (obj) => {
     setEuroMid(obj.mid);
   };
+
+  
 
   return (
     <div className="your-account-site">

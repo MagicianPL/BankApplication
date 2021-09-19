@@ -17,7 +17,7 @@ const History = ({ transactions }) => {
             <p className="transaction-title">{title}</p>
             <p className="amount">
               {income ? null : "-"}
-              {amount.toFixed(2)} PLN
+              {amount} PLN
             </p>
           </div>
         );
