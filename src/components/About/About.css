@@ -1,0 +1,26 @@
+.about-bank {
+    width: 100%;
+    border: 3px solid blue;
+    min-height: 100vh;
+    padding: 5rem 3rem;
+}
+
+.about-bank h1 {
+    font-size: 4rem;
+    font-weight: bold;
+    text-align: center;
+    position: relative;
+}
+
+.about-bank h1::after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    width: 85%;
+    left: 50%;
+    display: block;
+    transform: translateX(-50%);
+    height: 1px;
+    -webkit-box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.83);
+    box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.83);
+  }
