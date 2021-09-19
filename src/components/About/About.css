@@ -1,26 +1,74 @@
 .about-bank {
-    width: 100%;
-    border: 3px solid blue;
-    min-height: 100vh;
-    padding: 5rem 3rem;
+  width: 100%;
+  min-height: 100vh;
+  padding: 5rem 3rem;
 }
 
 .about-bank h1 {
-    font-size: 4rem;
-    font-weight: bold;
-    text-align: center;
-    position: relative;
+  font-size: 4rem;
+  font-weight: bold;
+  text-align: center;
+  position: relative;
 }
 
 .about-bank h1::after {
-    content: "";
-    position: absolute;
-    bottom: -10px;
-    width: 85%;
-    left: 50%;
-    display: block;
-    transform: translateX(-50%);
-    height: 1px;
-    -webkit-box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.83);
-    box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.83);
-  }
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  width: 85%;
+  left: 50%;
+  display: block;
+  transform: translateX(-50%);
+  height: 1px;
+  -webkit-box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.83);
+  box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.83);
+}
+
+.about-bank .motto {
+  width: 100%;
+  text-align: center;
+  font-weight: bold;
+  font-size: 3rem;
+  font-style: italic;
+  margin-top: 6rem;
+  position: relative;
+}
+
+.motto::before {
+  content: "Nasze Motto";
+  position: absolute;
+  top: 0;
+  left: 30%;
+  opacity: 0.2;
+  z-index: -1;
+  color: grey;
+  letter-spacing: 3px;
+  word-spacing: 5px;
+}
+
+.about-bank img {
+  display: block;
+  margin: 3rem auto;
+  max-width: 80%;
+  width: 20rem;
+}
+
+.text {
+  margin: 5rem auto;
+  padding: 1.5rem;
+  text-align: center;
+  font-size: 2.7rem;
+  width: 80%;
+}
+
+.text span {
+  color: darkgreen;
+}
+
+.text p {
+  margin-bottom: 3rem;
+}
+
+.text .bold {
+  font-weight: bold;
+}
