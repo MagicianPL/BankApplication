@@ -22,42 +22,6 @@ const CalculateCredit = () => {
     setShowInstallmentInfo(true);
   };
 
-  const checkValue = () => {
-    if (!creditValue || !isValid.test(creditValue)) {
-      setShowErrorInfo(true);
-    } else {
-      return true;
-    }
-  };
-
-  const checkYearsNMonths = () => {
-    if (!years && !months) {
-      setShowErrorInfo(true);
-    } else {
-      return true;
-    }
-  };
-
-  const checkYears = () => {
-    if (years) {
-      if (!isValid.test(years)) {
-        setShowErrorInfo(true);
-      } else {
-        return true;
-      }
-    }
-  };
-
-  const checkMonths = () => {
-    if (months) {
-      if (!isValid.test(months)) {
-        setShowErrorInfo(true);
-      } else {
-        return true;
-      }
-    }
-  };
-
   const inputsValidation = () => {
     if (!creditValue || !isValid.test(creditValue) || creditValue === "0") {
       setShowErrorInfo(true);
@@ -65,6 +29,8 @@ const CalculateCredit = () => {
       setShowErrorInfo(true);
     } else if (years && months) {
       if (years === "0" && months === "0") {
+        setShowErrorInfo(true);
+      } else if (!isValid.test(years) || !isValid.test(months)) {
         setShowErrorInfo(true);
       } else {
         setShowErrorInfo(false);
