@@ -44,6 +44,7 @@ const Account = (props) => {
   const [buttonText, setButtonText] = useState("Ukryj saldo");
   const [convertButtonText, setConvertButtonText] = useState(true);
   const [modalIsHidden, setModalIsHidden] = useState(true);
+  const [modalText, setModalText] = useState("");
   const [historyIsHidden, setHistoryIsHidden] = useState(true);
 
   const toggleModal = (boolean) => {
@@ -64,7 +65,7 @@ const Account = (props) => {
     //adding new transaction to an array of transactions (triggered in convert fn)
 
     const transaction = {
-      title: "Przewalutowanie na euro",
+      title: "Koszt przewalutowania",
       amount: ((props.euro / 1) * cost).toFixed(2),
       date: new Date(),
       income: false,
@@ -82,6 +83,13 @@ const Account = (props) => {
       setAccountBalance(amount);
       setIsPln(!isPln);
       setConvertButtonText(!convertButtonText);
+      setModalText(
+        <p>
+          Przewalutowanie na walutę euro obciąży Twoje konto na kwotę
+          <span>6 euro</span> - jest to całkowity koszt liczony po bieżącym
+          kursie
+        </p>
+      );
       setModalIsHidden(true);
       newTransaction(6);
     } else {
@@ -89,6 +97,7 @@ const Account = (props) => {
 
       setAccountBalance(amount);
       setIsPln(!isPln);
+      setModalIsHidden(true);
       setConvertButtonText(!convertButtonText);
       newTransaction(6.5);
     }
@@ -105,7 +114,24 @@ const Account = (props) => {
         </span>{" "}
         <button
           className="conversion"
-          onClick={isPln ? () => setModalIsHidden(false) : convert}
+          onClick={() => {
+            isPln
+              ? setModalText(
+                  <p>
+                    Przewalutowanie na walutę euro obciąży Twoje konto na kwotę
+                    <span> 6 euro</span> - jest to całkowity koszt liczony po
+                    bieżącym kursie
+                  </p>
+                )
+              : setModalText(
+                  <p>
+                    Przewalutowanie na walutę PLN obciąży Twoje konto na kwotę
+                    <span> 6.5 euro</span> - jest to całkowity koszt liczony po
+                    bieżącym kursie
+                  </p>
+                );
+            setModalIsHidden(false);
+          }}
         >
           {convertButtonText ? "Przewalutuj na euro" : "Przewalutuj na PLN"}
         </button>
@@ -128,6 +154,7 @@ const Account = (props) => {
         variable={modalIsHidden}
         function={toggleModal}
         convert={convert}
+        text={modalText}
       />
     </div>
   );
