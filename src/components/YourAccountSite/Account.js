@@ -66,7 +66,7 @@ const Account = (props) => {
 
     const transaction = {
       title: "Koszt przewalutowania",
-      amount: ((props.euro / 1) * cost).toFixed(2),
+      amount: ((props.euro / 1) * cost),
       date: new Date(),
       income: false,
     };
