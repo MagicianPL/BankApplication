@@ -9,6 +9,7 @@ import DepositSite from "./components/DepositSite/DepositSite";
 import { useState } from "react";
 import CryptoCurrenciesSite from "./components/CryptoCurrenciesSite/CryptoCurrenciesSite";
 import About from "./components/About/About";
+import BankTransfer from "./components/BankTransfer/BankTransfer";
 
 function App() {
   const [userLogin, setUserLogin] = useState("Nieznajomy");
@@ -16,6 +17,7 @@ function App() {
   return (
     <div className="App">
       <Header />
+      <BankTransfer />
       <Flex container="flex">
         <LogInBox
           setLogin={(login) => {
@@ -25,7 +27,7 @@ function App() {
         <WrapperAnimations />
       </Flex>
       <YourAccountSite login={userLogin} />
-        <DepositSite login={userLogin} />
+      <DepositSite login={userLogin} />
       <CryptoCurrenciesSite />
       <About />
     </div>
