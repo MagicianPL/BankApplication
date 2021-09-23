@@ -22,8 +22,11 @@ const BankTransfer = () => {
 
   return (
     <div className="bank-transfer-page">
-      <input type="number" onChange={period} value={inputTransferValue}></input>
-      <button onClick={validation}>wyslij</button>
+        <div className="bank-transfer-container">
+            <h1>PRZELEW<br />GOTÓWKOWY</h1>
+        </div>
+     {/*} <input type="number" onChange={period} value={inputTransferValue}></input>
+      <button onClick={validation}>wyslij</button>*/}
     </div>
   );
 };

@@ -17,7 +17,6 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <BankTransfer />
       <Flex container="flex">
         <LogInBox
           setLogin={(login) => {
@@ -27,6 +26,7 @@ function App() {
         <WrapperAnimations />
       </Flex>
       <YourAccountSite login={userLogin} />
+      <BankTransfer />
       <DepositSite login={userLogin} />
       <CryptoCurrenciesSite />
       <About />
