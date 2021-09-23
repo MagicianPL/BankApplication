@@ -6,7 +6,7 @@
 .bank-transfer-container {
   max-width: 1000px;
   min-height: 50vh;
-  border: 1px solid gray;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   margin: 40px auto;
   background-color: rgb(225, 247, 236);
   position: relative;
@@ -106,4 +106,13 @@
 
 .bank-transfer-page button:hover::after {
   transform: translate(0);
+}
+
+.error-account-number,
+.error-cash-amount {
+  color: red;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.7rem;
+  margin-bottom: 5px;
 }

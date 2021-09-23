@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-    faArrowCircleLeft
-} from "@fortawesome/free-solid-svg-icons";
+import { faArrowCircleLeft } from "@fortawesome/free-solid-svg-icons";
 
 import "./BankTransfer.css";
 
@@ -27,7 +25,7 @@ const BankTransfer = () => {
   return (
     <div className="bank-transfer-page">
       <div className="bank-transfer-container">
-      <FontAwesomeIcon icon={faArrowCircleLeft} />
+        <FontAwesomeIcon icon={faArrowCircleLeft} />
         <h1>
           PRZELEW
           <br />
@@ -38,12 +36,14 @@ const BankTransfer = () => {
           <input type="text" id="recipient" />
 
           <label htmlFor="account-number">Na konto</label>
+          <p className="error-account-number">Nieprawidłowy numer konta</p>
           <input type="text" id="account-number" />
 
           <label htmlFor="transfer-title">Tytuł przelewu</label>
           <input type="text" id="transfer-title" />
 
           <label htmlFor="cash-amount">Kwota PLN</label>
+          <p className="error-cash-amount">Nieprawidłowy format kwoty</p>
           <input type="number" id="cash-amount" />
 
           <button type="submit">Wyślij przelew</button>
