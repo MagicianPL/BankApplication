@@ -16,7 +16,18 @@ const BankTransfer = ({ history, setHistory }) => {
   /* For object that contains data from inputs. This object is created in a function */
   const [transferedValues, setTransferedValues] = useState({});
 
-  /* On createObject function I'm creating object that contains values from inputs */
+  const [transactionObject, setTransactionObject] = useState({});
+
+  const createTransactionObject = () => {
+    setTransactionObject({
+      title: `${transferedValues.recipient} - ${transferedValues.transferTitle}`,
+      amount: transferedValues.cashAmount,
+      income: false,
+      date: new Date(),
+    });
+  };
+
+  /* On createObject function I'm creating object that contains values from inputs. This is triggered, when the form is send */
   const createObject = () => {
     setTransferedValues({
       recipient: recipientValue,
@@ -28,8 +39,19 @@ const BankTransfer = ({ history, setHistory }) => {
 
   const submitForm = (e) => {
     e.preventDefault();
+
     createObject();
   };
+
+  //When transferedValues is set - useEffect triggers important function, that creates transaction object from transferedValues obj
+  useEffect(() => {
+    createTransactionObject();
+  }, [transferedValues]);
+
+  useEffect(() => {
+    console.log(transferedValues);
+    console.log(transactionObject);
+  });
 
   /*const validation = () => {
     const regExp = /^[1-9]*(\.[0-9][0-9])?$/;
