@@ -5,14 +5,31 @@ import { faArrowCircleLeft } from "@fortawesome/free-solid-svg-icons";
 import "./BankTransfer.css";
 
 const BankTransfer = () => {
-  const [inputTransferValue, setInputTransferValue] = useState("");
+  /* Four variables for four inputs. On inputs I have inline function, that sets values */
+  const [recipientValue, setRecipientValue] = useState("");
+  const [accountNumberValue, setAccountNumberValue] = useState("");
+  const [transferTitleValue, setTransferTitleValue] = useState("");
+  const [cashAmountValue, setCashAmountValue] = useState("");
 
-  const period = (e) => {
-    setInputTransferValue(e.target.value);
-    console.log(inputTransferValue);
+  let transferValues = {};
+
+  /* On createObject function I'm creating object that contains values from inputs */
+  const createObject = () => {
+    transferValues = {
+      recipient: recipientValue,
+      accountNumber: accountNumberValue,
+      transferTitle: transferTitleValue,
+      cashAmount: cashAmountValue,
+    };
   };
 
-  const validation = () => {
+  const submitForm = (e) => {
+    e.preventDefault();
+    createObject();
+    console.log(transferValues);
+  };
+
+  /*const validation = () => {
     const regExp = /^[1-9]*(\.[0-9][0-9])?$/;
     console.log(inputTransferValue);
     if (regExp.test(inputTransferValue)) {
@@ -20,7 +37,7 @@ const BankTransfer = () => {
     } else {
       console.log("Is invalid");
     }
-  };
+  };*/
 
   return (
     <div className="bank-transfer-page">
@@ -33,20 +50,50 @@ const BankTransfer = () => {
         </h1>
         <form>
           <label htmlFor="recipient">Nazwa Odbiorcy</label>
-          <input type="text" id="recipient" />
+          <input
+            type="text"
+            id="recipient"
+            value={recipientValue}
+            onChange={(e) => {
+              setRecipientValue(e.target.value);
+            }}
+          />
 
           <label htmlFor="account-number">Na konto</label>
           <p className="error-account-number">Nieprawidłowy numer konta</p>
-          <input type="text" id="account-number" />
+          <input
+            type="text"
+            id="account-number"
+            value={accountNumberValue}
+            onChange={(e) => {
+              setAccountNumberValue(e.target.value);
+            }}
+          />
 
           <label htmlFor="transfer-title">Tytuł przelewu</label>
-          <input type="text" id="transfer-title" />
+          <input
+            type="text"
+            id="transfer-title"
+            value={transferTitleValue}
+            onChange={(e) => {
+              setTransferTitleValue(e.target.value);
+            }}
+          />
 
           <label htmlFor="cash-amount">Kwota PLN</label>
           <p className="error-cash-amount">Nieprawidłowy format kwoty</p>
-          <input type="number" id="cash-amount" />
+          <input
+            type="number"
+            id="cash-amount"
+            value={cashAmountValue}
+            onChange={(e) => {
+              setCashAmountValue(e.target.value);
+            }}
+          />
 
-          <button type="submit">Wyślij przelew</button>
+          <button type="submit" onClick={submitForm}>
+            Wyślij przelew
+          </button>
         </form>
       </div>
       {/*} <input type="number" onChange={period} value={inputTransferValue}></input>
