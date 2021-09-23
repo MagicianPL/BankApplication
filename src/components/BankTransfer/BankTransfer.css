@@ -19,10 +19,76 @@
   font-weight: bold;
   background-color: rgb(223, 231, 227);
   color: darkgreen;
+  margin-bottom: 3rem;
+}
+
+.bank-transfer-page label {
+  display: block;
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
 }
 
 .bank-transfer-page input {
-  width: 300px;
-  height: 50px;
-  border: 3px solid black;
+  max-width: 90%;
+  width: 36rem;
+  height: 5rem;
+  border: 0.5px solid black;
+  display: block;
+  margin: 0 auto 3rem auto;
+  border-radius: 6px;
+  font-size: 1.8rem;
+  font-weight: 800;
+  padding-left: 30px;
+}
+
+#cash-amount {
+  width: 18rem;
+}
+
+.bank-transfer-page input:focus {
+  border-color: darkgreen;
+  outline: none;
+}
+
+.bank-transfer-page button {
+  width: 33rem;
+  max-width: 80%;
+  height: 40px;
+  font-weight: bold;
+  color: white;
+  border: none;
+  display: block;
+  margin: 25px auto 30px auto;
+  border-radius: 7px;
+  font-size: 25px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  z-index: 5;
+}
+
+.bank-transfer-page button::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 7px;
+  background-color: green;
+  z-index: -2;
+}
+
+.bank-transfer-page button::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 7px;
+  background-color: rgb(18, 197, 18);
+  transform: translate(-100%);
+  transition: transform 0.3s;
+  opacity: 0.5;
+  z-index: -1;
+}
+
+.bank-transfer-page button:hover::after {
+  transform: translate(0);
 }

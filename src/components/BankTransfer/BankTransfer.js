@@ -22,24 +22,29 @@ const BankTransfer = () => {
 
   return (
     <div className="bank-transfer-page">
-        <div className="bank-transfer-container">
-            <h1>PRZELEW<br />GOTÓWKOWY</h1>
-            <form>
-                <label htmlFor="recipient">Nazwa Odbiorcy</label>
-                    <input type="text" id="recipient" />
-                
-                <label htmlFor="account-number">Na konto</label>
-                    <input type="text" id="account-number" />
+      <div className="bank-transfer-container">
+        <h1>
+          PRZELEW
+          <br />
+          GOTÓWKOWY
+        </h1>
+        <form>
+          <label htmlFor="recipient">Nazwa Odbiorcy</label>
+          <input type="text" id="recipient" />
 
-                    <label htmlFor="transfer-title">Tytuł przelewu</label>
-                    <input type="text" id="transfer-title" />
+          <label htmlFor="account-number">Na konto</label>
+          <input type="text" id="account-number" />
 
-                    <label htmlFor="cash-amount">Na konto</label>
-                    <input type="number" id="cash-amount" />
-                
-            </form>
-        </div>
-     {/*} <input type="number" onChange={period} value={inputTransferValue}></input>
+          <label htmlFor="transfer-title">Tytuł przelewu</label>
+          <input type="text" id="transfer-title" />
+
+          <label htmlFor="cash-amount">Kwota PLN</label>
+          <input type="number" id="cash-amount" />
+
+          <button type="submit">Wyślij przelew</button>
+        </form>
+      </div>
+      {/*} <input type="number" onChange={period} value={inputTransferValue}></input>
       <button onClick={validation}>wyslij</button>*/}
     </div>
   );
