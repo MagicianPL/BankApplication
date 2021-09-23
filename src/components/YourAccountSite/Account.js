@@ -4,53 +4,28 @@ import History from "./History";
 
 import "./Account.css";
 
-const historyTransactions = [
-  {
-    title: "Żabka - artykuły spożywcze",
-    amount: 18.72,
-    income: false,
-    date: new Date(2021, 8, 1),
-  },
-  {
-    title: "Hebe - sklep kosmetyczny",
-    amount: 247.5,
-    income: false,
-    date: new Date(2021, 8, 1),
-  },
-  {
-    title: "McDonald",
-    amount: 32.38,
-    income: false,
-    date: new Date(2021, 7, 17),
-  },
-  {
-    title: "Przelew wychodzący do Marian Jarząbek",
-    amount: 300,
-    income: false,
-    date: new Date(2021, 7, 16),
-  },
-  {
-    title: "Przelew przychodzący",
-    amount: 15598.6,
-    income: true,
-    date: new Date(2021, 7, 16),
-  },
-];
+
 
 const Account = (props) => {
   const [accountBalance, setAccountBalance] = useState(15000);
   const [isPln, setIsPln] = useState(true);
   const [isVisible, setIsVisible] = useState({ visibility: "visible" });
   const [buttonText, setButtonText] = useState("Ukryj saldo");
+  //Below I'm setting button's text (convert button)
   const [convertButtonText, setConvertButtonText] = useState(true);
+  //Below modal that informs about exchange currency cost
   const [modalIsHidden, setModalIsHidden] = useState(true);
   const [modalText, setModalText] = useState("");
+  
+  //For account history of transactions
   const [historyIsHidden, setHistoryIsHidden] = useState(true);
+
 
   const toggleModal = (boolean) => {
     setModalIsHidden(boolean);
   };
 
+  //Toggling balance view + text on button
   const toggleBalance = () => {
     isVisible.visibility === "visible"
       ? setIsVisible({ visibility: "hidden" })
@@ -66,15 +41,17 @@ const Account = (props) => {
 
     const transaction = {
       title: "Koszt przewalutowania",
-      amount: ((props.euro / 1) * cost),
+      amount: (props.euro / 1) * cost,
       date: new Date(),
       income: false,
     };
     console.log(`${props.euro} * ${cost}`);
 
-    historyTransactions.unshift(transaction); //new object is added to an array
+    props.setHistory([transaction, ...props.history]);
+    //Above I'm creating new array of transactions. Just created one + existing already
   };
 
+  //Converting money on another currency
   const convert = () => {
     if (isPln) {
       const amount = ((1 / props.euro) * accountBalance - 6).toFixed(2);
@@ -149,7 +126,7 @@ const Account = (props) => {
           Historia
         </button>
       </div>
-      {!historyIsHidden ? <History transactions={historyTransactions} /> : null}
+      {!historyIsHidden ? <History transactions={props.history} /> : null}
       <MessageModal
         variable={modalIsHidden}
         function={toggleModal}

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 import "./History.css";
 
+//transactions in props - Array of transactions objects
 const History = ({ transactions }) => {
   return (
     <div className="history">

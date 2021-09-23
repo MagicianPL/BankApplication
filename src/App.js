@@ -26,7 +26,6 @@ function App() {
         <WrapperAnimations />
       </Flex>
       <YourAccountSite login={userLogin} />
-      <BankTransfer />
       <DepositSite login={userLogin} />
       <CryptoCurrenciesSite />
       <About />

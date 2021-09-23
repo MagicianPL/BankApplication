@@ -1,32 +1,34 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowCircleLeft } from "@fortawesome/free-solid-svg-icons";
 
 import "./BankTransfer.css";
 
-const BankTransfer = () => {
+const BankTransfer = ({ history, setHistory }) => {
+  /* Above I'm restructuring props (history is an array of objects - transactions data) and setHistory is a function to set history. Props from YourAccountSite Component*/
+
   /* Four variables for four inputs. On inputs I have inline function, that sets values */
   const [recipientValue, setRecipientValue] = useState("");
   const [accountNumberValue, setAccountNumberValue] = useState("");
   const [transferTitleValue, setTransferTitleValue] = useState("");
   const [cashAmountValue, setCashAmountValue] = useState("");
 
-  let transferValues = {};
+  /* For object that contains data from inputs. This object is created in a function */
+  const [transferedValues, setTransferedValues] = useState({});
 
   /* On createObject function I'm creating object that contains values from inputs */
   const createObject = () => {
-    transferValues = {
+    setTransferedValues({
       recipient: recipientValue,
       accountNumber: accountNumberValue,
       transferTitle: transferTitleValue,
       cashAmount: cashAmountValue,
-    };
+    });
   };
 
   const submitForm = (e) => {
     e.preventDefault();
     createObject();
-    console.log(transferValues);
   };
 
   /*const validation = () => {
