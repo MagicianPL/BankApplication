@@ -1,4 +1,8 @@
 import React, { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+    faArrowCircleLeft
+} from "@fortawesome/free-solid-svg-icons";
 
 import "./BankTransfer.css";
 
@@ -23,6 +27,7 @@ const BankTransfer = () => {
   return (
     <div className="bank-transfer-page">
       <div className="bank-transfer-container">
+      <FontAwesomeIcon icon={faArrowCircleLeft} />
         <h1>
           PRZELEW
           <br />

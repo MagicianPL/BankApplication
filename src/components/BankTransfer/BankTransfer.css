@@ -9,6 +9,21 @@
   border: 1px solid gray;
   margin: 40px auto;
   background-color: rgb(225, 247, 236);
+  position: relative;
+}
+
+.bank-transfer-container svg {
+  font-size: 4rem;
+  color: gray;
+  position: absolute;
+  top: 25px;
+  left: 25px;
+  transition: color 0.5s;
+}
+
+.bank-transfer-container svg:hover {
+  color: darkgreen;
+  cursor: pointer;
 }
 
 .bank-transfer-container h1 {
