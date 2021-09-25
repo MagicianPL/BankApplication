@@ -37,6 +37,12 @@ header h2 {
   animation-delay: 2.5s;
 }
 
+@media (max-width: 600px) {
+  .slide-one p {
+    font-size: 1.8rem;
+  }
+}
+
 @keyframes from-bottom {
   100% {
     transform: translateY(0);
@@ -60,7 +66,7 @@ header h2 {
   position: absolute;
   top: 0;
   left: 0;
-  height: 300px;
+  height: 100%;
   width: 65%;
   background-color: mintcream;
   opacity: 0.55;

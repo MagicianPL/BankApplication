@@ -17,7 +17,7 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <Flex container="flex">
+      <Flex container="flex" className="container-home-site">
         <LogInBox
           setLogin={(login) => {
             setUserLogin(login);
@@ -25,10 +25,10 @@ function App() {
         />
         <WrapperAnimations />
       </Flex>
-      <YourAccountSite login={userLogin} />
+     {/* <YourAccountSite login={userLogin} />
       <DepositSite login={userLogin} />
       <CryptoCurrenciesSite />
-      <About />
+        <About />*/}
     </div>
   );
 }

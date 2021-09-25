@@ -17,17 +17,41 @@
   font-size: 6.5rem;
   letter-spacing: 12px;
   font-weight: bold;
-  padding: 40px 0 0 20px;
+  padding: 4rem 0 0 2rem;
   flex: 1;
   transform: rotate(-7deg);
+}
+
+@media (min-width: 601px) and (max-width: 800px) {
+  .perspective {
+    font-size: 4.5rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .perspective {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 200px) {
+  .perspective {
+    letter-spacing: 3px;
+  }
 }
 
 .flex-container {
   display: flex;
   width: 100%;
-  height: calc(100% - 50px);
-  margin: 25px 0;
+  height: calc(100% - 5rem);
+  margin: 2.5rem 0;
   position: relative;
+}
+
+@media (max-width: 600px) {
+  .flex-container {
+    flex-direction: column;
+  }
 }
 
 .flex-container::before {
@@ -52,4 +76,16 @@
   font-size: 4rem;
   font-weight: bold;
   margin-bottom: 1.5rem;
+}
+
+@media (max-width: 600px) {
+  .flex-columns p {
+    font-size: 2.7rem;
+  }
+}
+
+@media (min-width: 601px) {
+  .flex-columns p {
+    font-size: 2.8rem;
+  }
 }

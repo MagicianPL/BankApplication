@@ -1,11 +1,18 @@
 .wrapper-animations {
   width: 65rem;
+  max-width: 95%;
   height: 60rem;
   margin: 0 auto 0 auto;
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
+}
+
+@media (min-width: 1900px) {
+  .wrapper-animations {
+    width: 72rem;
+  }
 }
 
 .wrapper-animations::before {
@@ -18,6 +25,21 @@
   opacity: 0.3;
   z-index: -1;
   transition: opacity 1.5s;
+}
+
+@media (max-width: 1000px) {
+  .wrapper-animations::before {
+    inset: 2rem;
+    background-size: contain;
+    opacity: 0.5;
+  }
+}
+
+@media (min-width: 1900px) {
+  .wrapper-animations::before {
+    inset: 20px;
+    background-size: contain;
+  }
 }
 
 .wrapper-animations:hover::before {
@@ -36,4 +58,10 @@
   justify-content: center;
   align-items: center;
   transition: opacity 1.5s;
+}
+
+@media (min-width: 601px) and (max-width: 1000px) {
+  .wrapper-animations::after {
+    font-size: 2.5rem;
+  }
 }

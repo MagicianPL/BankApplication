@@ -1,5 +1,6 @@
 .block {
   width: 55rem;
+  max-width: 90%;
   height: 13rem;
   background-color: rgb(249, 247, 245);
   -webkit-box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.21);
