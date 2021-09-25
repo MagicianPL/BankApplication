@@ -13,6 +13,11 @@ const BankTransfer = ({ history, setHistory }) => {
   const [transferTitleValue, setTransferTitleValue] = useState("");
   const [cashAmountValue, setCashAmountValue] = useState("");
 
+  const [errorRecipient, setErrorRecipient] = useState("Niewypełnione pole");
+  const [errorAccountNum, setErrorAccountNum] = useState("Niewypełnione pole");
+  const [errorTitle, setErrorTitle] = useState("Niewypełnione pole");
+  const [errorCash, setErrorCash] = useState("Niewypełnione pole");
+
   /* *************************************************************************************************** */
   /*All code in this section is about creating another object in historyTransactionsArray. It works like this:
 1. We have empty objects - transferedValues n transactionObject.
@@ -66,7 +71,7 @@ const BankTransfer = ({ history, setHistory }) => {
     e.preventDefault();
     createObject();
   };
-/* **************************************************************************************************** */
+  /* **************************************************************************************************** */
   /*const regExp = /^[1-9]*(\.[0-9][0-9])?$/;*/
 
   return (
@@ -80,6 +85,7 @@ const BankTransfer = ({ history, setHistory }) => {
         </h1>
         <form>
           <label htmlFor="recipient">Nazwa Odbiorcy</label>
+          <p className="error">{errorRecipient}</p>
           <input
             type="text"
             id="recipient"
@@ -90,7 +96,7 @@ const BankTransfer = ({ history, setHistory }) => {
           />
 
           <label htmlFor="account-number">Na konto</label>
-          <p className="error-account-number">Nieprawidłowy numer konta</p>
+          <p className="error">{errorAccountNum}</p>
           <input
             type="text"
             id="account-number"
@@ -101,6 +107,7 @@ const BankTransfer = ({ history, setHistory }) => {
           />
 
           <label htmlFor="transfer-title">Tytuł przelewu</label>
+          <p className="error">{errorTitle}</p>
           <input
             type="text"
             id="transfer-title"
@@ -111,7 +118,7 @@ const BankTransfer = ({ history, setHistory }) => {
           />
 
           <label htmlFor="cash-amount">Kwota PLN</label>
-          <p className="error-cash-amount">Nieprawidłowy format kwoty</p>
+          <p className="error">{errorCash}</p>
           <input
             type="number"
             id="cash-amount"
