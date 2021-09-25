@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowCircleLeft } from "@fortawesome/free-solid-svg-icons";
 
 import "./BankTransfer.css";
 
 const BankTransfer = ({ history, setHistory }) => {
-  /* Above I'm restructuring props (history is an array of objects - transactions data) and setHistory is a function to set history. Props from YourAccountSite Component*/
+  /* Above I'm destructuring props (history is an array of objects - transactions data) and setHistory is a function to set history. Props from YourAccountSite Component*/
 
   /* Four variables for four inputs. On inputs I have inline function, that sets values */
   const [recipientValue, setRecipientValue] = useState("");
@@ -18,10 +18,30 @@ const BankTransfer = ({ history, setHistory }) => {
 
   const [transactionObject, setTransactionObject] = useState({});
 
+  const initialRender = useRef(true);
+
+  useEffect(() => {
+    if (!initialRender.current) {
+      console.log(transactionObject);
+      setHistory([transactionObject, ...history]);
+    }
+  }, [transactionObject]);
+
+  useEffect(() => {
+    if (!initialRender.current) {
+      createTransactionObject();
+      console.log("another render");
+    } else {
+      initialRender.current = false;
+      console.log("initial render");
+    }
+  }, [transferedValues]);
+
+
   const createTransactionObject = () => {
     setTransactionObject({
       title: `${transferedValues.recipient} - ${transferedValues.transferTitle}`,
-      amount: transferedValues.cashAmount,
+      amount: parseFloat(transferedValues.cashAmount),
       income: false,
       date: new Date(),
     });
@@ -39,29 +59,10 @@ const BankTransfer = ({ history, setHistory }) => {
 
   const submitForm = (e) => {
     e.preventDefault();
-
     createObject();
   };
 
-  //When transferedValues is set - useEffect triggers important function, that creates transaction object from transferedValues obj
-  useEffect(() => {
-    createTransactionObject();
-  }, [transferedValues]);
-
-  useEffect(() => {
-    console.log(transferedValues);
-    console.log(transactionObject);
-  });
-
-  /*const validation = () => {
-    const regExp = /^[1-9]*(\.[0-9][0-9])?$/;
-    console.log(inputTransferValue);
-    if (regExp.test(inputTransferValue)) {
-      console.log("Is Valid!!!");
-    } else {
-      console.log("Is invalid");
-    }
-  };*/
+  /*const regExp = /^[1-9]*(\.[0-9][0-9])?$/;*/
 
   return (
     <div className="bank-transfer-page">
@@ -120,7 +121,7 @@ const BankTransfer = ({ history, setHistory }) => {
           </button>
         </form>
       </div>
-      {/*} <input type="number" onChange={period} value={inputTransferValue}></input>
+      {/* <input type="number" onChange={period} value={inputTransferValue}></input>
       <button onClick={validation}>wyslij</button>*/}
     </div>
   );
