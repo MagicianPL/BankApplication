@@ -13,9 +13,15 @@ const BankTransfer = ({ history, setHistory }) => {
   const [transferTitleValue, setTransferTitleValue] = useState("");
   const [cashAmountValue, setCashAmountValue] = useState("");
 
+  /* *************************************************************************************************** */
+  /*All code in this section is about creating another object in historyTransactionsArray. It works like this:
+1. We have empty objects - transferedValues n transactionObject.
+2. We have initialRender variable - it's true.
+3. On useEffect I'm checking if it's initial render - when it's true, I'm setting variable to false and have dependency array.
+4. When user submit form, submitForm Fn is triggered. In this Fn I'm triggering createObject => createObject creates object and sets transferedValues => When transferedValues is changed, useEffect is triggering and in this useEffect I'm triggering createTransactionObject => This sets transactionObject => It's trigger another useEffect, when I'm setting History => And we have another object in accountHistory! Awesome!
+
   /* For object that contains data from inputs. This object is created in a function */
   const [transferedValues, setTransferedValues] = useState({});
-
   const [transactionObject, setTransactionObject] = useState({});
 
   const initialRender = useRef(true);
@@ -36,7 +42,6 @@ const BankTransfer = ({ history, setHistory }) => {
       console.log("initial render");
     }
   }, [transferedValues]);
-
 
   const createTransactionObject = () => {
     setTransactionObject({
@@ -61,7 +66,7 @@ const BankTransfer = ({ history, setHistory }) => {
     e.preventDefault();
     createObject();
   };
-
+/* **************************************************************************************************** */
   /*const regExp = /^[1-9]*(\.[0-9][0-9])?$/;*/
 
   return (
