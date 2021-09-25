@@ -13,10 +13,57 @@ const BankTransfer = ({ history, setHistory }) => {
   const [transferTitleValue, setTransferTitleValue] = useState("");
   const [cashAmountValue, setCashAmountValue] = useState("");
 
-  const [errorRecipient, setErrorRecipient] = useState("Niewypełnione pole");
-  const [errorAccountNum, setErrorAccountNum] = useState("Niewypełnione pole");
-  const [errorTitle, setErrorTitle] = useState("Niewypełnione pole");
-  const [errorCash, setErrorCash] = useState("Niewypełnione pole");
+  const [errorRecipient, setErrorRecipient] = useState("");
+  const [errorAccountNum, setErrorAccountNum] = useState("");
+  const [errorTitle, setErrorTitle] = useState("");
+  const [errorCash, setErrorCash] = useState("");
+
+  const recipientValidation = () => {
+    if (!recipientValue) {
+      setErrorRecipient("Niewypełnione pole");
+    } else {
+      return true;
+    }
+  };
+
+  const accountNumberValidation = () => {
+    if (!accountNumberValue) {
+      setErrorAccountNum("Niewypełnione pole");
+    } else {
+      return true;
+    }
+  };
+
+  const transferTitleValidation = () => {
+    if (!transferTitleValue) {
+      setErrorTitle("Niewypełnione pole");
+    } else {
+      return true;
+    }
+  };
+
+  const cashAmountValidation = () => {
+    if (!cashAmountValue) {
+      setErrorCash("Niewypełnione pole");
+    } else {
+      return true;
+    }
+  };
+
+  const transferFormValidation = () => {
+    recipientValidation();
+    accountNumberValidation();
+    transferTitleValidation();
+    cashAmountValidation();
+
+    if (recipientValidation() && accountNumberValidation && transferTitleValidation && cashAmountValidation) {
+      console.log("Transfer Form is Valid!!!")
+    }
+  };
+
+  /*const transferFormValidation = () => {
+    if (recipientValue === "")
+  };*/
 
   /* *************************************************************************************************** */
   /*All code in this section is about creating another object in historyTransactionsArray. It works like this:
@@ -69,7 +116,8 @@ const BankTransfer = ({ history, setHistory }) => {
 
   const submitForm = (e) => {
     e.preventDefault();
-    createObject();
+    /*createObject();*/
+    transferFormValidation();
   };
   /* **************************************************************************************************** */
   /*const regExp = /^[1-9]*(\.[0-9][0-9])?$/;*/

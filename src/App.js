@@ -25,10 +25,10 @@ function App() {
         />
         <WrapperAnimations />
       </Flex>
-     {/* <YourAccountSite login={userLogin} />
+      <YourAccountSite login={userLogin} />
       <DepositSite login={userLogin} />
       <CryptoCurrenciesSite />
-        <About />*/}
+      <About />
     </div>
   );
 }
