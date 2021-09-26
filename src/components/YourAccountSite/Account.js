@@ -6,7 +6,6 @@ import TransferModal from "./TransferModal";
 import "./Account.css";
 
 const Account = (props) => {
-  const [isPln, setIsPln] = useState(true);
   const [isVisible, setIsVisible] = useState({ visibility: "visible" });
   const [buttonText, setButtonText] = useState("Ukryj saldo");
   //Below I'm setting button's text (convert button)
@@ -56,12 +55,12 @@ const Account = (props) => {
 
   //Converting money on another currency
   const convert = () => {
-    if (isPln) {
+    if (props.isPln) {
       const amount = ((1 / props.euro) * props.balance - 6).toFixed(2);
       //(original currency / end currency) - it's exchange rate * amount of money to exchange
 
       props.setBalance(amount);
-      setIsPln(!isPln);
+      props.setIsPln(!props.isPln);
       setConvertButtonText(!convertButtonText);
       setModalText(
         <p>
@@ -76,7 +75,7 @@ const Account = (props) => {
       const amount = ((props.euro / 1) * (props.balance - 6.5)).toFixed(2);
 
       props.setBalance(amount);
-      setIsPln(!isPln);
+      props.setIsPln(!props.isPln);
       setModalIsHidden(true);
       setConvertButtonText(!convertButtonText);
       newTransaction(6.5);
@@ -84,7 +83,7 @@ const Account = (props) => {
   };
 
   const cashTransfer = () => {
-    if (!isPln) {
+    if (!props.isPln) {
       setModalText(
         <p>Aby wykonać przelew musisz przewalutować konto na PLN</p>
       );
@@ -99,12 +98,12 @@ const Account = (props) => {
           {buttonText}
         </button>
         <span style={isVisible}>
-          SALDO: {props.balance.toLocaleString()} {isPln ? "PLN" : "EUR"}
+          SALDO: {props.balance.toLocaleString()} {props.isPln ? "PLN" : "EUR"}
         </span>{" "}
         <button
           className="conversion"
           onClick={() => {
-            isPln
+            props.isPln
               ? setModalText(
                   <p>
                     Przewalutowanie na walutę euro obciąży Twoje konto na kwotę

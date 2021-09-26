@@ -57,6 +57,8 @@ const YourAccountSite = ({ login }) => {
     setEuroMid(obj.mid);
   };
 
+  const [isPln, setIsPln] = useState(true);
+
   return (
     <div className="your-account-site">
       <div className="top-bar">
@@ -65,10 +67,10 @@ const YourAccountSite = ({ login }) => {
         </p>
         <Nav />
       </div>
-      <Account euro={euroMid} history={historyTransactions} setHistory={setHistoryTransactions} balance={accountBalance} setBalance={setAccountBalance} />
+      <Account euro={euroMid} history={historyTransactions} setHistory={setHistoryTransactions} balance={accountBalance} setBalance={setAccountBalance} isPln={isPln} setIsPln={setIsPln} />
       <Currencies prop={saveEuro} />
       <CalculateCredit />
-      <BankTransfer history={historyTransactions} setHistory={setHistoryTransactions} balance={accountBalance} setBalance={setAccountBalance} />
+      <BankTransfer history={historyTransactions} setHistory={setHistoryTransactions} balance={accountBalance} setBalance={setAccountBalance} isPln={isPln} />
     </div>
   );
 };

@@ -4,8 +4,9 @@ import { faArrowCircleLeft } from "@fortawesome/free-solid-svg-icons";
 
 import "./BankTransfer.css";
 
-const BankTransfer = ({ history, setHistory, balance, setBalance }) => {
-  /* Above I'm destructuring props (history is an array of objects - transactions data) and setHistory is a function to set history. Balance is just cash on account balance n setBalance for setting this. Props from YourAccountSite Component*/
+const BankTransfer = ({ history, setHistory, balance, setBalance, isPln }) => {
+  /* Above I'm destructuring props (history is an array of objects - transactions data) and setHistory is a function to set history. Balance is just cash on account balance n setBalance for setting this.
+  Also if isPln is true - we can do cash transfer. Props from YourAccountSite Component*/
 
   /* Four variables for four inputs. On inputs I have inline function, that sets values */
   const [recipientValue, setRecipientValue] = useState("");
