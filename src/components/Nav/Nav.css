@@ -13,11 +13,36 @@ nav ul {
   padding-right: 9rem;
 }
 
+@media (max-width: 400px) {
+  nav ul {
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 15px auto 0 auto;
+    padding: 0;
+  }
+}
+
+@media (min-width: 401px) and (max-width: 700px) {
+  nav ul {
+    justify-content: center;
+    margin: 15px auto 0 auto;
+    padding: 0;
+  }
+}
+
 nav ul li {
   font-size: 2.2rem;
   margin: 0 10px;
   cursor: pointer;
   transition: all 0.5s;
+}
+
+@media (max-width: 400px) {
+  nav ul li {
+    font-size: 3rem;
+    margin-bottom: 2rem;
+  }
 }
 
 nav ul li:hover {

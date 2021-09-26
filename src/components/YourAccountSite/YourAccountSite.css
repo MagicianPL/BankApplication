@@ -15,6 +15,24 @@
   box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.83);
 }
 
+@media (max-width: 400px) {
+  .top-bar::after {
+    bottom: -87px;
+  }
+}
+
+@media (min-width: 401px) and (max-width: 600px) {
+  .top-bar::after {
+    bottom: -20px;
+  }
+}
+
+@media (min-width: 601px) and (max-width: 730px) {
+  .top-bar::after {
+    bottom: -18px;
+  }
+}
+
 .top-bar p {
   position: absolute;
   top: 15px;
@@ -22,6 +40,28 @@
   font-size: 2.1rem;
   font-weight: bold;
   cursor: pointer;
+}
+
+@media (max-width: 400px) {
+  .top-bar p {
+    top: 144px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 2.5rem;
+    text-align: center;
+  }
+}
+
+@media (min-width: 401px) and (max-width: 600px) {
+  .top-bar p {
+    top: 30px;
+  }
+}
+
+@media (min-width: 601px) and (max-width: 730px) {
+  .top-bar p {
+    top: 33px;
+  }
 }
 
 .top-bar svg {
