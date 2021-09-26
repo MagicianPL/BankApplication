@@ -7,7 +7,7 @@ import "./Account.css";
 
 
 const Account = (props) => {
-  const [accountBalance, setAccountBalance] = useState(15000);
+  
   const [isPln, setIsPln] = useState(true);
   const [isVisible, setIsVisible] = useState({ visibility: "visible" });
   const [buttonText, setButtonText] = useState("Ukryj saldo");
@@ -54,10 +54,10 @@ const Account = (props) => {
   //Converting money on another currency
   const convert = () => {
     if (isPln) {
-      const amount = ((1 / props.euro) * accountBalance - 6).toFixed(2);
+      const amount = ((1 / props.euro) * props.balance - 6).toFixed(2);
       //(original currency / end currency) - it's exchange rate * amount of money to exchange
 
-      setAccountBalance(amount);
+      props.setBalance(amount);
       setIsPln(!isPln);
       setConvertButtonText(!convertButtonText);
       setModalText(
@@ -70,9 +70,9 @@ const Account = (props) => {
       setModalIsHidden(true);
       newTransaction(6);
     } else {
-      const amount = ((props.euro / 1) * (accountBalance - 6.5)).toFixed(2);
+      const amount = ((props.euro / 1) * (props.balance - 6.5)).toFixed(2);
 
-      setAccountBalance(amount);
+      props.setBalance(amount);
       setIsPln(!isPln);
       setModalIsHidden(true);
       setConvertButtonText(!convertButtonText);
@@ -87,7 +87,7 @@ const Account = (props) => {
           {buttonText}
         </button>
         <span style={isVisible}>
-          SALDO: {accountBalance.toLocaleString()} {isPln ? "PLN" : "EUR"}
+          SALDO: {props.balance.toLocaleString()} {isPln ? "PLN" : "EUR"}
         </span>{" "}
         <button
           className="conversion"

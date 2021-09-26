@@ -4,8 +4,8 @@ import { faArrowCircleLeft } from "@fortawesome/free-solid-svg-icons";
 
 import "./BankTransfer.css";
 
-const BankTransfer = ({ history, setHistory }) => {
-  /* Above I'm destructuring props (history is an array of objects - transactions data) and setHistory is a function to set history. Props from YourAccountSite Component*/
+const BankTransfer = ({ history, setHistory, balance, setBalance }) => {
+  /* Above I'm destructuring props (history is an array of objects - transactions data) and setHistory is a function to set history. Balance is just cash on account balance n setBalance for setting this. Props from YourAccountSite Component*/
 
   /* Four variables for four inputs. On inputs I have inline function, that sets values */
   const [recipientValue, setRecipientValue] = useState("");
@@ -22,14 +22,20 @@ const BankTransfer = ({ history, setHistory }) => {
     if (!recipientValue) {
       setErrorRecipient("Niewypełnione pole");
     } else {
+      setErrorRecipient("");
       return true;
     }
   };
 
   const accountNumberValidation = () => {
+    const isValid = /^\d+$/; //only numbers
+
     if (!accountNumberValue) {
       setErrorAccountNum("Niewypełnione pole");
+    } else if (!isValid.test(accountNumberValue)) {
+      setErrorAccountNum("Nieprawidłowy format");
     } else {
+      setErrorAccountNum("");
       return true;
     }
   };
@@ -38,14 +44,22 @@ const BankTransfer = ({ history, setHistory }) => {
     if (!transferTitleValue) {
       setErrorTitle("Niewypełnione pole");
     } else {
+      setErrorTitle("");
       return true;
     }
   };
 
   const cashAmountValidation = () => {
+    const isValid = /^[1-9][0-9]*(\.[0-9][0-9])?$/; //Only numbers and two decimal places
     if (!cashAmountValue) {
       setErrorCash("Niewypełnione pole");
+    } else if (!isValid.test(cashAmountValue)) {
+      setErrorCash("Nieprawidłowy format");
+    } else if (cashAmountValue > balance) {
+      setErrorCash("Niewystarczająca ilość środków");
     } else {
+      setErrorCash("");
+      setBalance((balance - cashAmountValue).toFixed(2));
       return true;
     }
   };
@@ -56,8 +70,17 @@ const BankTransfer = ({ history, setHistory }) => {
     transferTitleValidation();
     cashAmountValidation();
 
-    if (recipientValidation() && accountNumberValidation && transferTitleValidation && cashAmountValidation) {
-      console.log("Transfer Form is Valid!!!")
+    if (
+      recipientValidation() &&
+      accountNumberValidation() &&
+      transferTitleValidation() &&
+      cashAmountValidation()
+    ) {
+      createObject();
+      setRecipientValue("");
+      setAccountNumberValue("");
+      setTransferTitleValue("");
+      setCashAmountValue("");
     }
   };
 
@@ -148,6 +171,7 @@ const BankTransfer = ({ history, setHistory }) => {
           <input
             type="text"
             id="account-number"
+            placeholder="dowolna ilość CYFR"
             value={accountNumberValue}
             onChange={(e) => {
               setAccountNumberValue(e.target.value);

@@ -45,6 +45,7 @@ const history = [
 
 const YourAccountSite = ({ login }) => {
 
+  const [accountBalance, setAccountBalance] = useState(15000);
   const [historyTransactions, setHistoryTransactions] = useState(history);
 
   
@@ -64,10 +65,10 @@ const YourAccountSite = ({ login }) => {
         </p>
         <Nav />
       </div>
-      <Account euro={euroMid} history={historyTransactions} setHistory={setHistoryTransactions} />
+      <Account euro={euroMid} history={historyTransactions} setHistory={setHistoryTransactions} balance={accountBalance} setBalance={setAccountBalance} />
       <Currencies prop={saveEuro} />
       <CalculateCredit />
-      <BankTransfer history={historyTransactions} setHistory={setHistoryTransactions} />
+      <BankTransfer history={historyTransactions} setHistory={setHistoryTransactions} balance={accountBalance} setBalance={setAccountBalance} />
     </div>
   );
 };
