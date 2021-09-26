@@ -50,16 +50,17 @@ const BankTransfer = ({ history, setHistory, balance, setBalance }) => {
   };
 
   const cashAmountValidation = () => {
-    const isValid = /^[1-9][0-9]*(\.[0-9][0-9])?$/; //Only numbers and two decimal places
+    const isValid = /^[0-9][0-9]*?(\.[0-9][0-9])?$/; //Only numbers and two decimal places
     if (!cashAmountValue) {
       setErrorCash("Niewypełnione pole");
     } else if (!isValid.test(cashAmountValue)) {
       setErrorCash("Nieprawidłowy format");
-    } else if (cashAmountValue > balance) {
+    } else if (Number.parseFloat(cashAmountValue) > Number.parseFloat(balance)) {
       setErrorCash("Niewystarczająca ilość środków");
     } else {
       setErrorCash("");
-      setBalance((balance - cashAmountValue).toFixed(2));
+
+      setBalance((Number.parseFloat(balance) - Number.parseFloat(cashAmountValue)).toFixed(2));
       return true;
     }
   };
