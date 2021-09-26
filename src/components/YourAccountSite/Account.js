@@ -1,13 +1,11 @@
 import React, { useEffect, useState } from "react";
 import MessageModal from "./MessageModal";
 import History from "./History";
+import TransferModal from "./TransferModal";
 
 import "./Account.css";
 
-
-
 const Account = (props) => {
-  
   const [isPln, setIsPln] = useState(true);
   const [isVisible, setIsVisible] = useState({ visibility: "visible" });
   const [buttonText, setButtonText] = useState("Ukryj saldo");
@@ -16,13 +14,18 @@ const Account = (props) => {
   //Below modal that informs about exchange currency cost
   const [modalIsHidden, setModalIsHidden] = useState(true);
   const [modalText, setModalText] = useState("");
-  
+
+  const [transferModalIsHidden, setTransferModalIsHidden] = useState(true);
+
   //For account history of transactions
   const [historyIsHidden, setHistoryIsHidden] = useState(true);
 
-
   const toggleModal = (boolean) => {
     setModalIsHidden(boolean);
+  };
+
+  const toggleTransferModal = (boolean) => {
+    setTransferModalIsHidden(boolean);
   };
 
   //Toggling balance view + text on button
@@ -80,6 +83,15 @@ const Account = (props) => {
     }
   };
 
+  const cashTransfer = () => {
+    if (!isPln) {
+      setModalText(
+        <p>Aby wykonać przelew musisz przewalutować konto na PLN</p>
+      );
+      setTransferModalIsHidden(false);
+    }
+  };
+
   return (
     <div className="account">
       <h2>
@@ -116,7 +128,7 @@ const Account = (props) => {
 
       <h3>00 2847 2049 0483 0000 9304</h3>
       <div className="actions">
-        <button>Zrób przelew</button>
+        <button onClick={cashTransfer}>Zrób przelew</button>
         <button
           onClick={() => {
             /*toggling history*/
@@ -131,6 +143,11 @@ const Account = (props) => {
         variable={modalIsHidden}
         function={toggleModal}
         convert={convert}
+        text={modalText}
+      />
+      <TransferModal
+        variable={transferModalIsHidden}
+        function={toggleTransferModal}
         text={modalText}
       />
     </div>
