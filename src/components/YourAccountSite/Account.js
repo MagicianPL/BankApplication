@@ -85,7 +85,7 @@ const Account = (props) => {
   const cashTransfer = () => {
     if (!props.isPln) {
       setModalText(
-        <p>Aby wykonać przelew musisz przewalutować konto na PLN</p>
+        <p>Aby wykonać przelew musisz przewalutować konto na <span>PLN</span></p>
       );
       setTransferModalIsHidden(false);
     }

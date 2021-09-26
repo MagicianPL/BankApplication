@@ -2,7 +2,7 @@ import React, { useState, useRef } from "react";
 import ReactDOM from "react-dom";
 
 import "./LogInBox.css";
-const LogInBox = ({setLogin, setShowHomeSite}) => {
+const LogInBox = ({ setLogin, setShowHomeSite }) => {
   let randomCode; //przypiszę tutaj losowy kod z tablicy, będzie wyświetlony w boxie
   const codes = ["Gsj38Fq", "du5fP", "372yZ", "75cT74", "1bQ7dTG"];
 
@@ -66,7 +66,7 @@ const LogInBox = ({setLogin, setShowHomeSite}) => {
 
     if (checkLogin() && checkPassword() && checkCode()) {
       setShowHomeSite(false);
-    };
+    }
   };
 
   return (

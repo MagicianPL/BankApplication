@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowCircleLeft } from "@fortawesome/free-solid-svg-icons";
+import ConfirmationModal from "./ConfirmationModal";
 
 import "./BankTransfer.css";
 
@@ -18,6 +19,8 @@ const BankTransfer = ({ history, setHistory, balance, setBalance, isPln }) => {
   const [errorAccountNum, setErrorAccountNum] = useState("");
   const [errorTitle, setErrorTitle] = useState("");
   const [errorCash, setErrorCash] = useState("");
+
+  const [confirmationModal, setConfirmationModal] = useState(false);
 
   const recipientValidation = () => {
     if (!recipientValue) {
@@ -78,6 +81,7 @@ const BankTransfer = ({ history, setHistory, balance, setBalance, isPln }) => {
       transferTitleValidation() &&
       cashAmountValidation()
     ) {
+      setConfirmationModal(true);
       createObject();
       setRecipientValue("");
       setAccountNumberValue("");
@@ -86,9 +90,6 @@ const BankTransfer = ({ history, setHistory, balance, setBalance, isPln }) => {
     }
   };
 
-  /*const transferFormValidation = () => {
-    if (recipientValue === "")
-  };*/
 
   /* *************************************************************************************************** */
   /*All code in this section is about creating another object in historyTransactionsArray. It works like this:
@@ -206,6 +207,8 @@ const BankTransfer = ({ history, setHistory, balance, setBalance, isPln }) => {
             Wyślij przelew
           </button>
         </form>
+        {confirmationModal ? <ConfirmationModal show={confirmationModal} toggle={setConfirmationModal}/> : null }
+        
       </div>
       {/* <input type="number" onChange={period} value={inputTransferValue}></input>
       <button onClick={validation}>wyslij</button>*/}

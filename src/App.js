@@ -13,29 +13,31 @@ import BankTransfer from "./components/BankTransfer/BankTransfer";
 
 function App() {
   const [userLogin, setUserLogin] = useState("Nieznajomy");
-  const [showHomeSite, setShowHomeSite] = useState(true);
+  const [showHomeSite, setShowHomeSite] = useState(false);
 
   return (
     <div className="App">
-      {showHomeSite ? <>
-      <Header />
-      <Flex container="flex" className="container-home-site">
-        <LogInBox
-          setLogin={(login) => {
-            setUserLogin(login);
-          }} setShowHomeSite={setShowHomeSite}
-        />
-        <WrapperAnimations />
-      </Flex> </>
-      : <>
-      <YourAccountSite login={userLogin} />
-      <DepositSite login={userLogin} />
-      <CryptoCurrenciesSite />
-      <About />
-      </>
-      }
-      
-      
+      {showHomeSite ? (
+        <>
+          <Header />
+          <Flex container="flex" className="container-home-site">
+            <LogInBox
+              setLogin={(login) => {
+                setUserLogin(login);
+              }}
+              setShowHomeSite={setShowHomeSite}
+            />
+            <WrapperAnimations />
+          </Flex>{" "}
+        </>
+      ) : (
+        <>
+          <YourAccountSite login={userLogin} />
+          <DepositSite login={userLogin} />
+          <CryptoCurrenciesSite />
+          <About />
+        </>
+      )}
     </div>
   );
 }
