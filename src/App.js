@@ -51,16 +51,14 @@ const history = [
 ];
 
 function App() {
-
   /*States on higher level (above router) - it won't be resetting when the adress is changed (router) */
   const [userLogin, setUserLogin] = useState("Nieznajomy");
-  const [showHomeSite, setShowHomeSite] = useState(true);
+  const [showHomeSite, setShowHomeSite] = useState(false);
   /* If showHomeSite is true - LogIn site is rendering - otherwise accountSite */
 
   const [accountBalance, setAccountBalance] = useState(15000);
   const [historyTransactions, setHistoryTransactions] = useState(history); //just history
-  const [isPln, setIsPln] = useState(true); //It checks if currency on account is PLN or Euro 
-
+  const [isPln, setIsPln] = useState(true); //It checks if currency on account is PLN or Euro
 
   return (
     <div className="App">
@@ -88,7 +86,15 @@ function App() {
 
           <Switch>
             <Route path="/" exact>
-              <YourAccountSite login={userLogin} historyTransactions={historyTransactions} setHistoryTransactions={setHistoryTransactions} accountBalance={accountBalance} setAccountBalance={setAccountBalance} isPln={isPln} setIsPln={setIsPln} />
+              <YourAccountSite
+                login={userLogin}
+                historyTransactions={historyTransactions}
+                setHistoryTransactions={setHistoryTransactions}
+                accountBalance={accountBalance}
+                setAccountBalance={setAccountBalance}
+                isPln={isPln}
+                setIsPln={setIsPln}
+              />
             </Route>
             <Route path="/credit">
               <CalculateCredit />
