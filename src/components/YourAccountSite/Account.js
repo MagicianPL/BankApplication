@@ -121,7 +121,7 @@ const Account = (props) => {
             setModalIsHidden(false);
           }}
         >
-          {convertButtonText ? "Przewalutuj na euro" : "Przewalutuj na PLN"}
+          {props.isPln ? "Przewalutuj na euro" : "Przewalutuj na PLN"}
         </button>
       </h2>
 

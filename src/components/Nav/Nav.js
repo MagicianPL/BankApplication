@@ -7,14 +7,14 @@ const Nav = () => {
   return (
     <nav>
       <ul>
+      <Link to="/">
+          <li>Konto</li>
+        </Link>
         <Link to="/about">
           <li>O Banku</li>
         </Link>
-
+        <Link to={"/credit"}>
         <li>Kredyty</li>
-
-        <Link to="/cryptocurrencies">
-          <li>Kryptowaluty</li>
         </Link>
         <Link to="deposit">
           <li>Lokata dla Ciebie</li>

@@ -1,54 +1,22 @@
 import React, { useState, useEffect } from "react";
-import Nav from "../Nav/Nav";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCog } from "@fortawesome/free-solid-svg-icons";
+
 import Account from "./Account";
 import Currencies from "./Currencies";
+import CryptoCurrenciesSite from "../CryptoCurrenciesSite/CryptoCurrenciesSite";
 import CalculateCredit from "./CalculateCredit";
 import BankTransfer from "../BankTransfer/BankTransfer";
 
 import "./YourAccountSite.css";
 
-// Array of objects - each object has transaction data for history of transactions
-const history = [
-  {
-    title: "Żabka - artykuły spożywcze",
-    amount: 18.72,
-    income: false,
-    date: new Date(2021, 8, 1),
-  },
-  {
-    title: "Hebe - sklep kosmetyczny",
-    amount: 247.5,
-    income: false,
-    date: new Date(2021, 8, 1),
-  },
-  {
-    title: "McDonald",
-    amount: 32.38,
-    income: false,
-    date: new Date(2021, 7, 17),
-  },
-  {
-    title: "Przelew wychodzący do Marian Jarząbek",
-    amount: 300,
-    income: false,
-    date: new Date(2021, 7, 16),
-  },
-  {
-    title: "Przelew przychodzący",
-    amount: 15598.6,
-    income: true,
-    date: new Date(2021, 7, 16),
-  },
-];
-
-const YourAccountSite = ({ login }) => {
-
-  const [accountBalance, setAccountBalance] = useState(15000);
-  const [historyTransactions, setHistoryTransactions] = useState(history);
-
-  
+const YourAccountSite = ({
+  login,
+  historyTransactions,
+  setHistoryTransactions,
+  accountBalance,
+  setAccountBalance,
+  isPln,
+  setIsPln
+}) => {
   //For saveEuro Fn
   const [euroMid, setEuroMid] = useState("");
 
@@ -57,19 +25,22 @@ const YourAccountSite = ({ login }) => {
     setEuroMid(obj.mid);
   };
 
-  const [isPln, setIsPln] = useState(true);
+  
 
   return (
     <div className="your-account-site">
-      <div className="top-bar">
-        <p>
-          {<FontAwesomeIcon icon={faCog} />}Witaj, {login}
-        </p>
-        <Nav />
-      </div>
-      <Account euro={euroMid} history={historyTransactions} setHistory={setHistoryTransactions} balance={accountBalance} setBalance={setAccountBalance} isPln={isPln} setIsPln={setIsPln} />
+      <Account
+        euro={euroMid}
+        history={historyTransactions}
+        setHistory={setHistoryTransactions}
+        balance={accountBalance}
+        setBalance={setAccountBalance}
+        isPln={isPln}
+        setIsPln={setIsPln}
+      />
       <Currencies prop={saveEuro} />
-      <CalculateCredit />
+      <CryptoCurrenciesSite />
+
       {/*<BankTransfer history={historyTransactions} setHistory={setHistoryTransactions} balance={accountBalance} setBalance={setAccountBalance} isPln={isPln} />*/}
     </div>
   );
