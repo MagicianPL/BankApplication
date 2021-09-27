@@ -70,7 +70,7 @@ const YourAccountSite = ({ login }) => {
       <Account euro={euroMid} history={historyTransactions} setHistory={setHistoryTransactions} balance={accountBalance} setBalance={setAccountBalance} isPln={isPln} setIsPln={setIsPln} />
       <Currencies prop={saveEuro} />
       <CalculateCredit />
-      <BankTransfer history={historyTransactions} setHistory={setHistoryTransactions} balance={accountBalance} setBalance={setAccountBalance} isPln={isPln} />
+      {/*<BankTransfer history={historyTransactions} setHistory={setHistoryTransactions} balance={accountBalance} setBalance={setAccountBalance} isPln={isPln} />*/}
     </div>
   );
 };

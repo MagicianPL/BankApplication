@@ -10,10 +10,11 @@ import { useState } from "react";
 import CryptoCurrenciesSite from "./components/CryptoCurrenciesSite/CryptoCurrenciesSite";
 import About from "./components/About/About";
 import BankTransfer from "./components/BankTransfer/BankTransfer";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function App() {
   const [userLogin, setUserLogin] = useState("Nieznajomy");
-  const [showHomeSite, setShowHomeSite] = useState(false);
+  const [showHomeSite, setShowHomeSite] = useState(true);
 
   return (
     <div className="App">
@@ -32,10 +33,24 @@ function App() {
         </>
       ) : (
         <>
-          <YourAccountSite login={userLogin} />
-          <DepositSite login={userLogin} />
-          <CryptoCurrenciesSite />
-          <About />
+          <Router>
+            <Switch>
+              <Route path="/" exact>
+                <YourAccountSite login={userLogin}/>
+              </Route>
+
+              <Route path="/deposit">
+                <DepositSite login={userLogin}/>
+                </Route>        
+                <Route path="/cryptocurrencies">
+                  <CryptoCurrenciesSite />
+                   </Route>
+              <Route path="/about">
+
+                <About />
+              </Route>
+            </Switch>
+          </Router>
         </>
       )}
     </div>
