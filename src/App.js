@@ -13,6 +13,7 @@ import { useState } from "react";
 import CryptoCurrenciesSite from "./components/CryptoCurrenciesSite/CryptoCurrenciesSite";
 import About from "./components/About/About";
 import BankTransfer from "./components/BankTransfer/BankTransfer";
+import ModalInfo from "./components/Index-LogIn Site/ModalInfo";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 // Array of objects - each object has transaction data for history of transactions
@@ -53,7 +54,7 @@ const history = [
 function App() {
   /*States on higher level (above router) - it won't be resetting when the adress is changed (router) */
   const [userLogin, setUserLogin] = useState("Nieznajomy");
-  const [showHomeSite, setShowHomeSite] = useState(false);
+  const [showHomeSite, setShowHomeSite] = useState(true);
   /* If showHomeSite is true - LogIn site is rendering - otherwise accountSite */
 
   const [accountBalance, setAccountBalance] = useState(15000);
@@ -66,6 +67,7 @@ function App() {
         <>
           <Header />
           <Flex container="flex" className="container-home-site">
+            <ModalInfo />
             <LogInBox
               setLogin={(login) => {
                 setUserLogin(login);
@@ -107,7 +109,13 @@ function App() {
               <About />
             </Route>
             <Route path="/transfer">
-            <BankTransfer history={historyTransactions} setHistory={setHistoryTransactions} balance={accountBalance} setBalance={setAccountBalance} isPln={isPln} />
+              <BankTransfer
+                history={historyTransactions}
+                setHistory={setHistoryTransactions}
+                balance={accountBalance}
+                setBalance={setAccountBalance}
+                isPln={isPln}
+              />
             </Route>
           </Switch>
         </Router>
