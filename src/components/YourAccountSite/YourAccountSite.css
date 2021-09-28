@@ -1,3 +1,8 @@
+.your-account-site {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
 .top-bar {
   position: relative;
   margin-top: 30px;

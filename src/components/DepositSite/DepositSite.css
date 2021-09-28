@@ -26,6 +26,12 @@
   line-height: 1.6;
 }
 
+@media (max-width: 500px) {
+  .deposit-site h1 {
+    margin: 5rem auto 6rem auto;
+  }
+}
+
 h1 span {
   color: darkgreen;
 }
@@ -82,6 +88,12 @@ h1 span {
   flex: 2;
 }
 
+@media (max-width: 700px) {
+  .deposit .deposit-info {
+    flex: 1;
+  }
+}
+
 .money .input-error {
   text-align: center;
   color: red;
@@ -101,6 +113,13 @@ h1 span {
   margin-bottom: 15px;
 }
 
+@media (max-width: 450px) {
+  .deposit .money input {
+    margin: 0 10px 15px 10px;
+    max-width: 60px;
+  }
+}
+
 .money input:hover {
   border: 1px solid darkgreen;
 }
@@ -111,6 +130,13 @@ h1 span {
 
 .money .p-info {
   font-size: 12px;
+}
+
+@media (max-width: 450px) {
+  .money .p-info {
+    padding: 0 10px;
+    text-align: center;
+  }
 }
 
 .money .next {
@@ -146,4 +172,10 @@ h1 span {
   justify-content: flex-start;
   color: darkgreen;
   padding-top: 25px;
+}
+
+@media (max-width: 300px) {
+  .deposit-info {
+    font-size: 2.5rem;
+  }
 }

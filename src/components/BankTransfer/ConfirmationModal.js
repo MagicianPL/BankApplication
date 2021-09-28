@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCheckCircle
@@ -12,7 +13,7 @@ const ConfirmationModal = ({show, toggle}) => {
             <div> {/*for background*/}
             <h1>SUKCES</h1>
             <p>Przelew wykonany pomyślnie</p>
-            <p>(jest widoczny w historii konta)</p>
+            <p className="smaller">(jest on widoczny w historii konta)</p>
             <FontAwesomeIcon icon={faCheckCircle} onClick={()=>{toggle(!show)}} />
             </div>
         </div>

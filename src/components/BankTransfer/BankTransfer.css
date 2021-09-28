@@ -46,6 +46,7 @@
   background-color: rgb(223, 231, 227);
   color: darkgreen;
   margin-bottom: 3rem;
+  border-radius: 8px;
 }
 
 .bank-transfer-page label {

@@ -5,6 +5,12 @@
   padding: 6rem 3rem;
 }
 
+@media (max-width: 400px) {
+  .crypto-site{
+  padding: 6rem 1rem
+  }
+}
+
 .crypto-site h1 {
   text-align: center;
   color: darkgreen;
@@ -33,11 +39,25 @@
   z-index: -1;
 }
 
+@media (max-width: 600px) {
+  .crypto-site::before {
+    background-position: center;
+  }
+}
+
 .crypto-site table {
   margin: 0 auto;
   font-size: 2.5rem;
   border-spacing: 25px 35px;
   position: relative;
+  max-width: 100%;
+}
+
+@media (max-width: 400px) {
+  .crypto-site table {
+    font-size: 2rem;
+    border-spacing: 10px 28px;
+  }
 }
 
 .crypto-site table::before {

@@ -8,7 +8,7 @@
   left: 50%;
   transform: translateX(-50%);
   width: 850px;
-  max-width: 100%;
+  max-width: 97%;
   text-align: center;
   display: none;
 }
@@ -35,4 +35,8 @@
 
 .message-modal .cancel {
   margin-right: 25px;
+}
+
+.message-modal .ok {
+  min-width: 70px;
 }

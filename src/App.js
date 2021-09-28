@@ -106,6 +106,9 @@ function App() {
             <Route path="/about">
               <About />
             </Route>
+            <Route path="/transfer">
+            <BankTransfer history={historyTransactions} setHistory={setHistoryTransactions} balance={accountBalance} setBalance={setAccountBalance} isPln={isPln} />
+            </Route>
           </Switch>
         </Router>
       )}

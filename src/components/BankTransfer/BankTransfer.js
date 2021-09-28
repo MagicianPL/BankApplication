@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
+import {Link} from 'react-router-dom';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowCircleLeft } from "@fortawesome/free-solid-svg-icons";
 import ConfirmationModal from "./ConfirmationModal";
@@ -151,7 +152,9 @@ const BankTransfer = ({ history, setHistory, balance, setBalance, isPln }) => {
   return (
     <div className="bank-transfer-page">
       <div className="bank-transfer-container">
+        <Link to="/">
         <FontAwesomeIcon icon={faArrowCircleLeft} />
+        </Link>
         <h1>
           PRZELEW
           <br />

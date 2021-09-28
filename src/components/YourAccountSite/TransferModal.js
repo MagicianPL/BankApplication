@@ -9,7 +9,7 @@ const TransferModal = (props) => {
     <div className={`message-modal ${modalBoolean ? "" : "show-modal"}`}>
       <h2>OSTRZEŻENIE</h2>
       {props.text}
-      <button className="cancel" onClick={() => props.function(true)}>
+      <button className="ok" onClick={() => props.function(true)}>
         OK
       </button>
     </div>
