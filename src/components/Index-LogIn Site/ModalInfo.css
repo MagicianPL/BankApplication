@@ -1,33 +1,44 @@
 .modal-info {
-  width: 100%;
-
+  min-width: 100vw;
+  min-height: 100vh;
   color: white;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  z-index: 51;
+  font-size: 2.3rem;
+  text-align: center;
+  padding-top: 15px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  opacity: 0;
+  animation: showModal 1s forwards;
+  animation-delay: 2.5s;
+}
+
+@keyframes showModal {
+  100% {
+    opacity: 1;
+  }
+}
+
+.absolute-container {
   position: absolute;
   top: 0;
   right: 0;
-  left: 0;
-  bottom: 0;
-  z-index: 51;
-  font-size: 3rem;
-  text-align: center;
-  cursor: pointer;
-}
-
-.relative-container {
-  position: relative;
-  width: 100%;
-  height: 100%;
+  min-height: 100vh;
+  min-width: 100vw;
   text-align: center;
   padding-top: 4rem;
 }
 
 .modal-info h1 {
-  font-size: 4rem;
+  font-size: 3rem;
   margin-bottom: 3rem;
 }
 
 .modal-info p,
-ul {
+.modal-info ul {
   width: auto;
   max-width: 900px;
   text-align: center;
@@ -38,7 +49,7 @@ ul {
   max-width: 500px;
 }
 
-.modal-info div::before {
+.modal-info::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -56,4 +67,12 @@ ul {
   border-radius: 8px;
   background-color: white;
   color: black;
+  border: none;
+  opacity: 0.65;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.modal-info button:hover {
+  opacity: 1;
 }

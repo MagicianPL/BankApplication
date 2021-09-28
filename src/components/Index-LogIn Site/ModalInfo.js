@@ -1,11 +1,13 @@
-import React from "react";
+import React, {useState} from "react";
 
 import "./ModalInfo.css";
 
 const ModalInfo = () => {
+    const [hideModal, setHideModal] = useState({});
+
   return (
-    <div className="modal-info">
-      <div className="relative-container">
+    <div className="modal-info" style={hideModal}>
+      <div className="absolute-container">
         <h1>Witaj w mojej Aplikacji Bankowej,</h1>
         <p>
           Zaloguj się używając <strong>dowolnego, wymyślonego loginu</strong><br />
@@ -20,7 +22,9 @@ const ModalInfo = () => {
           <li>Wylicz kredyt</li>
           <li>Sprawdź lokatę!</li>
         </ul>
-        <button>SPRAWDZAM</button>
+        <button onClick={()=>{
+            setHideModal({display: "none"})
+        }}>SPRAWDZAM</button>
       </div>
     </div>
   );
