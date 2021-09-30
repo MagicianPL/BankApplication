@@ -16,9 +16,10 @@ const ModalInfo = () => {
         </p>
         <ul>
           <li>Przewalutuj konto</li>
-          <li>Ukryj - Pokaż saldo konta</li>
+          <li>Ukryj / Pokaż stan konta</li>
           <li>Zrób przelew</li>
-          <li>Sprawdź kursy walut</li>
+          <li>Sprawdź historię</li>
+          <li>Sprawdź aktualne kursy walut</li>
           <li>Wylicz kredyt</li>
           <li>Sprawdź lokatę!</li>
         </ul>

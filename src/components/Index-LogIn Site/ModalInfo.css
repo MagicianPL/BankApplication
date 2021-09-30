@@ -30,6 +30,8 @@
   min-width: 100vw;
   text-align: center;
   padding-top: 4rem;
+  padding-bottom: 2.5rem;
+  background: rgba(0, 0, 0, 0.9);
 }
 
 .modal-info h1 {
@@ -47,15 +49,6 @@
 
 .modal-info ul {
   max-width: 500px;
-}
-
-.modal-info::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-color: black;
-  opacity: 0.9;
-  z-index: -1;
 }
 
 .modal-info li {
