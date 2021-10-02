@@ -8,9 +8,9 @@
   background-size: cover;
   background-position: top;
   z-index: 6;
-  /* transform: translateX(100%);
+  transform: translateX(100%);
   animation: fromRight 2s forwards;
-  animation-delay: 16.5s;*/
+  animation-delay: 16.5s;
 }
 
 @keyframes fromRight {
