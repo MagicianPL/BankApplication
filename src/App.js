@@ -67,7 +67,7 @@ function App() {
         <>
           <Header />
           <Flex container="flex" className="container-home-site">
-            <ModalInfo />
+            {/*<ModalInfo />*/}
             <LogInBox
               setLogin={(login) => {
                 setUserLogin(login);

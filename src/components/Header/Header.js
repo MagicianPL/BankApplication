@@ -9,8 +9,8 @@ import "./Header.css";
 const Header = () => {
   return (
     <header>
-      <SlideOne />
-      <SlideTwo />
+     {/* <SlideOne />
+      <SlideTwo />*/}
       <SlideThree />
     </header>
   );

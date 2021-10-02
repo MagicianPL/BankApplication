@@ -8,13 +8,39 @@
   background-size: cover;
   background-position: top;
   z-index: 6;
-  transform: translateX(100%);
+  /* transform: translateX(100%);
   animation: fromRight 2s forwards;
-  animation-delay: 16.5s;
+  animation-delay: 16.5s;*/
 }
 
 @keyframes fromRight {
   100% {
     transform: translateX(0);
   }
+}
+
+.slide-three .logo {
+  position: absolute;
+  top: 3.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: "Ephesis", cursive;
+  font-weight: 600;
+  color: darkgreen;
+  font-size: 7rem;
+}
+
+.slide-three .bar {
+  width: 100%;
+  min-height: 8rem;
+  background-color: rgba(255, 255, 255, 0.5);
+  position: absolute;
+  bottom: 1.5rem;
+  left: 0;
+  font-size: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: darkgreen;
+  font-weight: bold;
 }
