@@ -1,10 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 import Account from "./Account";
 import Currencies from "./Currencies";
 import CryptoCurrenciesSite from "../CryptoCurrenciesSite/CryptoCurrenciesSite";
-import CalculateCredit from "./CalculateCredit";
-import BankTransfer from "../BankTransfer/BankTransfer";
 
 import "./YourAccountSite.css";
 
@@ -15,7 +13,7 @@ const YourAccountSite = ({
   accountBalance,
   setAccountBalance,
   isPln,
-  setIsPln
+  setIsPln,
 }) => {
   //For saveEuro Fn
   const [euroMid, setEuroMid] = useState("");
@@ -24,8 +22,6 @@ const YourAccountSite = ({
   const saveEuro = (obj) => {
     setEuroMid(obj.mid);
   };
-
-  
 
   return (
     <div className="your-account-site">

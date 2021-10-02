@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import MessageModal from "./MessageModal";
 import History from "./History";
 import TransferModal from "./TransferModal";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import "./Account.css";
 
@@ -86,7 +86,9 @@ const Account = (props) => {
   const cashTransfer = () => {
     if (!props.isPln) {
       setModalText(
-        <p>Aby wykonać przelew musisz przewalutować konto na <span>PLN</span></p>
+        <p>
+          Aby wykonać przelew musisz przewalutować konto na <span>PLN</span>
+        </p>
       );
       setTransferModalIsHidden(false);
     }
@@ -128,8 +130,14 @@ const Account = (props) => {
 
       <h3>00 2847 2049 0483 0000 9304</h3>
       <div className="actions">
-        {props.isPln ? <Link to="/transfer"><button>Zrób przelew</button></Link> : <button onClick={cashTransfer}>Zrób przelew</button>}
-        
+        {props.isPln ? (
+          <Link to="/transfer">
+            <button>Zrób przelew</button>
+          </Link>
+        ) : (
+          <button onClick={cashTransfer}>Zrób przelew</button>
+        )}
+
         <button
           onClick={() => {
             /*toggling history*/

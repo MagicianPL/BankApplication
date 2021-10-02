@@ -5,7 +5,6 @@ import "./Currencies.css";
 const Currencies = (props) => {
   const [currenciesObjects, setCurrenciesObjects] = useState([]);
   const [date, setDate] = useState("");
-  const [gold, setGold] = useState("");
   const [priceGold, setPriceGold] = useState("");
 
   useEffect(() => {
@@ -43,7 +42,6 @@ const Currencies = (props) => {
     fetch("http://api.nbp.pl/api/cenyzlota")
       .then((resp) => resp.json())
       .then((data) => {
-        setGold(data);
         setPriceGold(data[0].cena.toFixed(2));
       });
   }, []);

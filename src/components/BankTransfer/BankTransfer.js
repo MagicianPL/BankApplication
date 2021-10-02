@@ -107,7 +107,6 @@ const BankTransfer = ({ history, setHistory, balance, setBalance, isPln }) => {
 
   useEffect(() => {
     if (!initialRender.current) {
-      console.log(transactionObject);
       setHistory([transactionObject, ...history]);
     }
   }, [transactionObject]);
@@ -115,10 +114,10 @@ const BankTransfer = ({ history, setHistory, balance, setBalance, isPln }) => {
   useEffect(() => {
     if (!initialRender.current) {
       createTransactionObject();
-      console.log("another render");
+      
     } else {
       initialRender.current = false;
-      console.log("initial render");
+      
     }
   }, [transferedValues]);
 

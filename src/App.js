@@ -10,7 +10,6 @@ import YourAccountSite from "./components/YourAccountSite/YourAccountSite";
 import CalculateCredit from "./components/YourAccountSite/CalculateCredit";
 import DepositSite from "./components/DepositSite/DepositSite";
 import { useState } from "react";
-import CryptoCurrenciesSite from "./components/CryptoCurrenciesSite/CryptoCurrenciesSite";
 import About from "./components/About/About";
 import BankTransfer from "./components/BankTransfer/BankTransfer";
 import ModalInfo from "./components/Index-LogIn Site/ModalInfo";

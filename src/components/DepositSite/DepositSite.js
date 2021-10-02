@@ -39,10 +39,6 @@ const DepositSite = (props) => {
     setAnswerIsHidden(true);
   };
 
-  const setAnswer = () => {
-    setAnswerIsHidden(false);
-  };
-
   return (
     <div className="deposit-site">
       <h1>
