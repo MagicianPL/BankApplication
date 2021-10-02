@@ -1,0 +1,28 @@
+{
+  "files": {
+    "main.css": "/BankApplication/static/css/main.5564f913.chunk.css",
+    "main.js": "/BankApplication/static/js/main.5acaeafb.chunk.js",
+    "main.js.map": "/BankApplication/static/js/main.5acaeafb.chunk.js.map",
+    "runtime-main.js": "/BankApplication/static/js/runtime-main.8feb61db.js",
+    "runtime-main.js.map": "/BankApplication/static/js/runtime-main.8feb61db.js.map",
+    "static/js/2.1e96df46.chunk.js": "/BankApplication/static/js/2.1e96df46.chunk.js",
+    "static/js/2.1e96df46.chunk.js.map": "/BankApplication/static/js/2.1e96df46.chunk.js.map",
+    "index.html": "/BankApplication/index.html",
+    "static/css/main.5564f913.chunk.css.map": "/BankApplication/static/css/main.5564f913.chunk.css.map",
+    "static/js/2.1e96df46.chunk.js.LICENSE.txt": "/BankApplication/static/js/2.1e96df46.chunk.js.LICENSE.txt",
+    "static/media/CryptoCurrenciesSite.css": "/BankApplication/static/media/1.7a55caee.jpg",
+    "static/media/DepositSite.css": "/BankApplication/static/media/2.7ada9373.jpg",
+    "static/media/CalculateCredit.css": "/BankApplication/static/media/happyPerson.d05eacc8.jpg",
+    "static/media/ConfirmationModal.css": "/BankApplication/static/media/money.7e997a23.jpg",
+    "static/media/SlideThree.css": "/BankApplication/static/media/people.3d16443b.jpg",
+    "static/media/SlideOne.css": "/BankApplication/static/media/slideone.c9cae076.jpg",
+    "static/media/SlideTwo.css": "/BankApplication/static/media/slidetwo.617f3804.jpg",
+    "static/media/WrapperAnimations.css": "/BankApplication/static/media/trophy.46096900.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.8feb61db.js",
+    "static/js/2.1e96df46.chunk.js",
+    "static/css/main.5564f913.chunk.css",
+    "static/js/main.5acaeafb.chunk.js"
+  ]
+}
