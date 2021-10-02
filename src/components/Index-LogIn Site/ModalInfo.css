@@ -1,6 +1,6 @@
 .modal-info {
   min-width: 100vw;
-  min-height: 100vh;
+  height: 100vh;
   color: white;
   position: fixed;
   top: 0;
@@ -9,9 +9,10 @@
   font-size: 2.3rem;
   text-align: center;
   padding-top: 15px;
-  overflow-y: auto;
+  overflow-y: scroll;
   overflow-x: hidden;
   opacity: 0;
+  background: rgba(0, 0, 0, 0.9);
   animation: showModal 1s forwards;
   animation-delay: 2.5s;
 }
@@ -23,15 +24,14 @@
 }
 
 .absolute-container {
-  position: absolute;
-  top: 0;
-  right: 0;
-  min-height: 100vh;
-  min-width: 100vw;
+  position: relative;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
   text-align: center;
   padding-top: 4rem;
   padding-bottom: 2.5rem;
-  background: rgba(0, 0, 0, 0.9);
+  z-index: 52;
 }
 
 .modal-info h1 {
