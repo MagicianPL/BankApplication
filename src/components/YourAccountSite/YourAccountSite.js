@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import Account from "./Account";
 import Currencies from "./Currencies";
@@ -22,6 +22,10 @@ const YourAccountSite = ({
   const saveEuro = (obj) => {
     setEuroMid(obj.mid);
   };
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <div className="your-account-site">
