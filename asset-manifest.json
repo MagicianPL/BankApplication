@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/BankApplication/static/css/main.5564f913.chunk.css",
-    "main.js": "/BankApplication/static/js/main.5acaeafb.chunk.js",
-    "main.js.map": "/BankApplication/static/js/main.5acaeafb.chunk.js.map",
+    "main.js": "/BankApplication/static/js/main.d36ae609.chunk.js",
+    "main.js.map": "/BankApplication/static/js/main.d36ae609.chunk.js.map",
     "runtime-main.js": "/BankApplication/static/js/runtime-main.8feb61db.js",
     "runtime-main.js.map": "/BankApplication/static/js/runtime-main.8feb61db.js.map",
     "static/js/2.1e96df46.chunk.js": "/BankApplication/static/js/2.1e96df46.chunk.js",
@@ -23,6 +23,6 @@
     "static/js/runtime-main.8feb61db.js",
     "static/js/2.1e96df46.chunk.js",
     "static/css/main.5564f913.chunk.css",
-    "static/js/main.5acaeafb.chunk.js"
+    "static/js/main.d36ae609.chunk.js"
   ]
 }
