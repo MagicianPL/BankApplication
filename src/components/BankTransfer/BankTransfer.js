@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
-import {Link} from 'react-router-dom';
+import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowCircleLeft } from "@fortawesome/free-solid-svg-icons";
 import ConfirmationModal from "./ConfirmationModal";
@@ -60,12 +60,18 @@ const BankTransfer = ({ history, setHistory, balance, setBalance, isPln }) => {
       setErrorCash("Niewypełnione pole");
     } else if (!isValid.test(cashAmountValue)) {
       setErrorCash("Nieprawidłowy format");
-    } else if (Number.parseFloat(cashAmountValue) > Number.parseFloat(balance)) {
+    } else if (
+      Number.parseFloat(cashAmountValue) > Number.parseFloat(balance)
+    ) {
       setErrorCash("Niewystarczająca ilość środków");
     } else {
       setErrorCash("");
 
-      setBalance((Number.parseFloat(balance) - Number.parseFloat(cashAmountValue)).toFixed(2));
+      setBalance(
+        (
+          Number.parseFloat(balance) - Number.parseFloat(cashAmountValue)
+        ).toFixed(2)
+      );
       return true;
     }
   };
@@ -91,7 +97,6 @@ const BankTransfer = ({ history, setHistory, balance, setBalance, isPln }) => {
     }
   };
 
-
   /* *************************************************************************************************** */
   /*All code in this section is about creating another object in historyTransactionsArray. It works like this:
 1. We have empty objects - transferedValues n transactionObject.
@@ -114,10 +119,8 @@ const BankTransfer = ({ history, setHistory, balance, setBalance, isPln }) => {
   useEffect(() => {
     if (!initialRender.current) {
       createTransactionObject();
-      
     } else {
       initialRender.current = false;
-      
     }
   }, [transferedValues]);
 
@@ -152,7 +155,7 @@ const BankTransfer = ({ history, setHistory, balance, setBalance, isPln }) => {
     <div className="bank-transfer-page">
       <div className="bank-transfer-container">
         <Link to="/">
-        <FontAwesomeIcon icon={faArrowCircleLeft} />
+          <FontAwesomeIcon icon={faArrowCircleLeft} />
         </Link>
         <h1>
           PRZELEW
@@ -209,8 +212,12 @@ const BankTransfer = ({ history, setHistory, balance, setBalance, isPln }) => {
             Wyślij przelew
           </button>
         </form>
-        {confirmationModal ? <ConfirmationModal show={confirmationModal} toggle={setConfirmationModal}/> : null }
-        
+        {confirmationModal ? (
+          <ConfirmationModal
+            show={confirmationModal}
+            toggle={setConfirmationModal}
+          />
+        ) : null}
       </div>
       {/* <input type="number" onChange={period} value={inputTransferValue}></input>
       <button onClick={validation}>wyslij</button>*/}

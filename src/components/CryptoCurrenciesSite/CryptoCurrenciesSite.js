@@ -22,37 +22,39 @@ const CryptoCurrenciesSite = () => {
 
   return (
     <div className="crypto-site">
-        {cryptos.length !== 0 ? <>
-         <p className="fetching-info">(dane odświeżane są co 10 sekund)</p>
-         <table>
-           <thead>
-             <tr>
-               <th>WALUTA</th>
-               <th>SYMBOL</th>
-               <th>CENA</th>
-               <th>MAX</th>
-             </tr>
-           </thead>
-           <tbody>
-             {cryptos.map((obj) => {
-               const { symbol, high, name, price } = obj;
-   
-               return (
-                 <tr key={symbol}>
-                   <td>{name}</td>
-                   <td>
-                     <i>{symbol}</i>
-                   </td>
-                   <td>{parseFloat(price).toFixed(4)} EUR</td>
-                   <td>{parseFloat(high).toFixed(4)} EUR</td>
-                 </tr>
-               );
-             })}
-           </tbody>
-         </table>
-         </>
-         : <h1>Proszę czekać, pobieram dane...</h1>}
-     
+      {cryptos.length !== 0 ? (
+        <>
+          <p className="fetching-info">(dane odświeżane są co 10 sekund)</p>
+          <table>
+            <thead>
+              <tr>
+                <th>WALUTA</th>
+                <th>SYMBOL</th>
+                <th>CENA</th>
+                <th>MAX</th>
+              </tr>
+            </thead>
+            <tbody>
+              {cryptos.map((obj) => {
+                const { symbol, high, name, price } = obj;
+
+                return (
+                  <tr key={symbol}>
+                    <td>{name}</td>
+                    <td>
+                      <i>{symbol}</i>
+                    </td>
+                    <td>{parseFloat(price).toFixed(4)} EUR</td>
+                    <td>{parseFloat(high).toFixed(4)} EUR</td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </>
+      ) : (
+        <h1>Proszę czekać, pobieram dane...</h1>
+      )}
     </div>
   );
 };

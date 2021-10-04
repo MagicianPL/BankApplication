@@ -8,7 +8,7 @@ const Currencies = (props) => {
   const [priceGold, setPriceGold] = useState("");
 
   useEffect(() => {
-    fetch("http://api.nbp.pl/api/exchangerates/tables/a")
+    fetch("https://api.nbp.pl/api/exchangerates/tables/a")
       .then((json) => json.json())
       .then((data) => {
         setDate(data[0].effectiveDate);
@@ -39,7 +39,7 @@ const Currencies = (props) => {
   }, []);
 
   useEffect(() => {
-    fetch("http://api.nbp.pl/api/cenyzlota")
+    fetch("https://api.nbp.pl/api/cenyzlota")
       .then((resp) => resp.json())
       .then((data) => {
         setPriceGold(data[0].cena.toFixed(2));
