@@ -22,6 +22,11 @@ const CryptoCurrenciesSite = () => {
 
   return (
     <div className="crypto-site">
+      <p className="link">
+        <a href="https://nomics.com">
+          Crypto Market Cap & Pricing Data Provided By Nomics
+        </a>
+      </p>
       {cryptos.length !== 0 ? (
         <>
           <p className="fetching-info">(dane odświeżane są co 10 sekund)</p>

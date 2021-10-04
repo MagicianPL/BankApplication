@@ -6,9 +6,15 @@
 }
 
 @media (max-width: 400px) {
-  .crypto-site{
-  padding: 6rem 1rem
+  .crypto-site {
+    padding: 6rem 1rem;
   }
+}
+.crypto-site .link {
+  text-align: center;
+  font-size: 1.8rem;
+  cursor: pointer;
+  margin-bottom: 2rem;
 }
 
 .crypto-site h1 {
