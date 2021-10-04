@@ -21,6 +21,7 @@
 
 .slide-three .logo {
   position: absolute;
+  width: 100%;
   top: 3.5rem;
   left: 50%;
   transform: translateX(-50%);
@@ -29,6 +30,8 @@
   color: darkgreen;
   font-size: 7rem;
   text-align: center;
+  background-color: rgba(255, 255, 255, 0.5);
+  padding: 1rem;
 }
 
 @media (min-width: 451px) and (max-width: 480px) {

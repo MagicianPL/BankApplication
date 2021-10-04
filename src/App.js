@@ -53,7 +53,7 @@ const history = [
 function App() {
   /*States on higher level (above router) - it won't be resetting when the adress is changed (router) */
   const [userLogin, setUserLogin] = useState("Nieznajomy");
-  const [showHomeSite, setShowHomeSite] = useState(false);
+  const [showHomeSite, setShowHomeSite] = useState(true);
   /* If showHomeSite is true - LogIn site is rendering - otherwise accountSite */
 
   const [accountBalance, setAccountBalance] = useState(15000);
