@@ -14,7 +14,9 @@ const DepositSite = (props) => {
   const [earnings, setEarnings] = useState("");
 
   const calculateEarnings = () => {
-    setEarnings(parseInt(((0.05 * inputValue) / 12) * monthsValue).toFixed(2));
+    setEarnings(
+      parseInt(((0.05 * parseFloat(inputValue)) / 12) * monthsValue).toFixed(2)
+    );
   };
 
   const validateInput = () => {

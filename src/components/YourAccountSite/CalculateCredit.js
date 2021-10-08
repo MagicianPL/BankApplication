@@ -16,9 +16,18 @@ const CalculateCredit = () => {
   /*const isValid = /^([1-9])$/;*/
 
   const calculating = () => {
-    const percentages = (0.065 * creditValue) / 12;
-    setInstallment(creditValue / (years * 12 + months) + percentages);
+    const percentages = (0.065 * parseInt(creditValue)) / 12;
+    console.log(`percentages = 0.065 * ${creditValue} / 12`);
+    console.log((0.065 * creditValue) / 12);
+    setInstallment(
+      parseInt(creditValue) / (parseFloat(years) * 12 + parseFloat(months)) +
+        percentages
+    );
     //This is value of credit installment
+    console.log(
+      `setInstallment = creditValue / (years * 12 + months) + percentages`
+    );
+    console.log(creditValue / (years * 12 + months) + percentages);
     setShowInstallmentInfo(true);
   };
 
