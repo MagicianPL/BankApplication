@@ -17,17 +17,27 @@ const CalculateCredit = () => {
 
   const calculating = () => {
     const percentages = (0.065 * parseInt(creditValue)) / 12;
-    console.log(`percentages = 0.065 * ${creditValue} / 12`);
-    console.log((0.065 * creditValue) / 12);
-    setInstallment(
-      parseInt(creditValue) / (parseFloat(years) * 12 + parseFloat(months)) +
-        percentages
-    );
-    //This is value of credit installment
-    console.log(
-      `setInstallment = creditValue / (years * 12 + months) + percentages`
-    );
-    console.log(creditValue / (years * 12 + months) + percentages);
+
+    //if we have number on years and months inputs
+    if (months && years) {
+      setInstallment(
+        parseInt(creditValue) / (parseFloat(years) * 12 + parseFloat(months)) +
+          percentages
+      );
+      //This is value of credit installment
+      //only months
+    } else if (months) {
+      setInstallment(parseInt(creditValue) / parseFloat(months) + percentages);
+      //This is value of credit installment
+
+      //only years
+    } else {
+      setInstallment(
+        parseInt(creditValue) / (parseFloat(years) * 12) + percentages
+      );
+      //This is value of credit installment
+    }
+
     setShowInstallmentInfo(true);
   };
 
